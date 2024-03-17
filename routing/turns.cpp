@@ -348,7 +348,7 @@ bool ParseLanes(string lanesString, vector<SingleLaneInfo> & lanes)
     return false;
   lanes.clear();
   strings::AsciiToLower(lanesString);
-  base::EraseIf(lanesString, [](char c) { return isspace(c); });
+  base::EraseIf(lanesString, [](char c) { return std::isspace(static_cast<unsigned char>(c)); });
 
   vector<string> SplitLanesStrings;
   SingleLaneInfo lane;

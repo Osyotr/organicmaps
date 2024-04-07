@@ -38,14 +38,14 @@ target_compile_definitions(${PROJECT_NAME}
 
 if (WITH_SYSTEM_PROVIDED_3PARTY)
   find_package(GTest REQUIRED)
-  target_link_libraries(${PROJECT_NAME} GTest::gtest)
 else()
   add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/../../3party/googletest" "${CMAKE_CURRENT_BINARY_DIR}/googletest")
-  target_include_directories(${PROJECT_NAME} PUBLIC ${OMIM_ROOT}/3party/glm)
 endif()
+
+target_include_directories(${PROJECT_NAME} PUBLIC ${OMIM_ROOT}/3party/glm)
 
 target_link_libraries(${PROJECT_NAME}
   qt_tstfrm
-  gmock
   ${DRAPE_LINK_LIBRARIES}
+  GTest::gmock
 )

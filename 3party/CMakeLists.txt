@@ -63,6 +63,10 @@ add_subdirectory(opening_hours)
 add_subdirectory(stb_image)
 add_subdirectory(succinct)
 
+add_library(fast_double_parser INTERFACE)
+add_library(fast_double_parser::fast_double_parser ALIAS fast_double_parser)
+target_include_directories(fast_double_parser INTERFACE "${OMIM_ROOT}/3party/fast_double_parser/include")
+
 add_subdirectory(vulkan_wrapper)
 
 if (PLATFORM_DESKTOP)

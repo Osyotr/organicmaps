@@ -207,6 +207,7 @@ target_link_libraries(${PROJECT_NAME}
     -framework\ CFNetwork
     -framework\ Security  # SecPKCS12Import
     >
+  $<$<BOOL:${PLATFORM_WIN}>:bcrypt> # For boost::uuid
 )
 
 omim_add_test_subdirectory(platform_tests_support)

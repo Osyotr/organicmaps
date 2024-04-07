@@ -1,0 +1,49 @@
+{
+  "builtin-baseline": "c7961da7380ecdb92242c9dbc8ee1bca2105e335",
+  "dependencies": [
+    "boost-circular-buffer",
+    "boost-geometry",
+    "boost-iostreams",
+    "boost-lambda",
+    "boost-math",
+    "boost-serialization",
+    "boost-spirit",
+    "boost-stacktrace",
+    "boost-test",
+    "boost-uuid",
+    "dlfcn-win32",
+    "expat",
+    "freetype",
+    "gflags",
+    "gtest",
+    "harfbuzz",
+    "icu",
+    "jansson",
+    "pugixml",
+    {
+      "name": "qtbase",
+      "default-features": false,
+      "features": [
+        "gui",
+        "harfbuzz",
+        "icu",
+        "jpeg",
+        "network",
+        "opengl",
+        "openssl",
+        "png",
+        "widgets",
+        "zstd"
+      ]
+    },
+    {
+      "name": "qtimageformats",
+      "default-features": false
+    },
+    "qtpositioning",
+    "qtsvg",
+    "utfcpp",
+    "vulkan-headers",
+    "zlib"
+  ]
+}

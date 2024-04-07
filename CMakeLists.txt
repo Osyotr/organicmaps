@@ -191,6 +191,9 @@ endif()
 
 find_package(ZLIB REQUIRED)
 
+find_package(Boost CONFIG REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+
 # Include 3party dependencies.
 add_subdirectory(3party)
 

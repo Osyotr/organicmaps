@@ -46,6 +46,6 @@ endif()
 
 target_link_libraries(${PROJECT_NAME}
   qt_tstfrm
-  gmock
+  GTest::gmock
   ${DRAPE_LINK_LIBRARIES}
 )

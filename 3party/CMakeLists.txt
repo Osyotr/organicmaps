@@ -24,6 +24,9 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
   add_subdirectory(expat/expat)
   add_library(expat::expat ALIAS expat)
 
+  # Add GTest library.
+  add_subdirectory(googletest)
+
   # Configure Jansson library.
   set(JANSSON_BUILD_DOCS OFF)
   set(JANSSON_BUILD_MAN OFF)

@@ -49,25 +49,12 @@ bool IsLeapYear(int year)
 // Inspired by python's calendar.py
 time_t TimeGM(std::tm const & tm)
 {
-  int year;
-  int days;
-  int hours;
-  int minutes;
-  int seconds;
-
-  year = 1900 + tm.tm_year;
-  days = 365 * (year - 1970) + LeapDaysCount(1970, year);
-  days += g_monoff[tm.tm_mon];
-
-  if (tm.tm_mon > 1 && IsLeapYear(year))
-    ++days;
-  days += tm.tm_mday - 1;
-
-  hours = days * 24 + tm.tm_hour;
-  minutes = hours * 60 + tm.tm_min;
-  seconds = minutes * 60 + tm.tm_sec;
-
-  return base::SecondsSinceEpochToTimeT(seconds);
+#ifdef OMIM_OS_WINDOWS
+    std::tm tmp = tm;
+    return _mkgmtime(&tmp);
+#else
+    return timegm(&tm);
+#endif
 }
 
 time_t TimeGM(int year, int month, int day, int hour, int min, int sec)

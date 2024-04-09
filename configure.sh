@@ -135,12 +135,12 @@ fi
 if [ ! -d "$BASE_PATH/3party/boost/" ]; then
   echo "You need to have Boost submodule present to run bootstrap.sh"
   echo "Try 'git submodule update --init --recursive'"
-  exit 1
+  #exit 1
 fi
 if [ ! -d "$BASE_PATH/3party/boost/tools" ]; then
   echo "Boost's submodule 'tools' is missing, it is required for bootstrap"
   echo "Try 'git submodule update --init --recursive'"
-  exit 1
+  #exit 1
 fi
 
 cd "$BASE_PATH/3party/boost/"

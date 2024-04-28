@@ -63,6 +63,10 @@ set(SRC
 
 omim_add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${RES_SOURCES} ${SRC})
 
+target_sources(${PROJECT_NAME} PRIVATE
+  res/windows.rc
+)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 
 target_link_libraries(${PROJECT_NAME}

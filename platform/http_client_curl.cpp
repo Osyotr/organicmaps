@@ -241,7 +241,7 @@ bool HttpClient::RunHttpRequest()
   }
   catch (RootException const & ex)
   {
-    LOG(LERROR, (ex.Msg()));
+    LOG(LWARNING, (ex.Msg()));
     return false;
   }
 

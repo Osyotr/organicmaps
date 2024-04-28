@@ -325,6 +325,8 @@ endif()
 
 # Should be on the root level, not in 3party, so tests can get these dependencies.
 if (PLATFORM_LINUX OR PLATFORM_WIN)
+  # https://gitlab.kitware.com/cmake/cmake/-/issues/25892
+  set(ICU_FIND_QUIETLY ON)
   find_package(ICU COMPONENTS uc i18n data REQUIRED)
   find_package(Freetype REQUIRED)
   find_package(harfbuzz REQUIRED)

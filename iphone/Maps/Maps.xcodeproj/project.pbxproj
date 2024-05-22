@@ -325,6 +325,8 @@
 		6B15907226623AE500944BBA /* 00_NotoSansThai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B15907026623AE500944BBA /* 00_NotoSansThai-Regular.ttf */; };
 		6B679E89266BFD0A0074AE2A /* 00_NotoNaskhArabic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B679E88266BFD090074AE2A /* 00_NotoNaskhArabic-Regular.ttf */; };
 		6B9978361C89A316003B8AA0 /* editor.config in Resources */ = {isa = PBXBuildFile; fileRef = 6B9978341C89A316003B8AA0 /* editor.config */; };
+		8C4FB9C72BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */; };
+		8CB13C3B2BF1276A004288F2 /* CarplayPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */; };
 		99012847243F0D6900C72B10 /* UIViewController+alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99012846243F0D6900C72B10 /* UIViewController+alternative.swift */; };
 		9901284F244732DB00C72B10 /* BottomTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99012849244732DB00C72B10 /* BottomTabBarPresenter.swift */; };
 		99012851244732DB00C72B10 /* BottomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9901284B244732DB00C72B10 /* BottomTabBarViewController.swift */; };
@@ -615,7 +617,6 @@
 		FA853BBB26BC3B8A0026D455 /* libkml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BBA26BC3B8A0026D455 /* libkml.a */; };
 		FA853BBD26BC3B8A0026D455 /* libmap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BBC26BC3B8A0026D455 /* libmap.a */; };
 		FA853BBF26BC3B8A0026D455 /* minizip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BBE26BC3B8A0026D455 /* minizip.framework */; };
-		FA853BC126BC3B8A0026D455 /* liboauthcpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BC026BC3B8A0026D455 /* liboauthcpp.a */; };
 		FA853BC326BC3B8A0026D455 /* libopening_hours.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BC226BC3B8A0026D455 /* libopening_hours.a */; };
 		FA853BC526BC3B8A0026D455 /* libplatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BC426BC3B8A0026D455 /* libplatform.a */; };
 		FA853BC726BC3B8A0026D455 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BC626BC3B8A0026D455 /* libprotobuf.a */; };
@@ -631,7 +632,6 @@
 		FA853BDB26BC54CD0026D455 /* libtraffic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BDA26BC54CD0026D455 /* libtraffic.a */; };
 		FA853BDD26BC58570026D455 /* DatePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BDC26BC58570026D455 /* DatePicker.framework */; };
 		FA853BDF26BC58620026D455 /* libge0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BDE26BC58620026D455 /* libge0.a */; };
-		FA853BE126BC58690026D455 /* libsdf_image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BE026BC58690026D455 /* libsdf_image.a */; };
 		FA853BE326BC58770026D455 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BE226BC58770026D455 /* libfreetype.a */; };
 		FA853BE526BC5B660026D455 /* libvulkan_wrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BE426BC5B660026D455 /* libvulkan_wrapper.a */; };
 		FA853BE726BC5B820026D455 /* libstb_image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA853BE626BC5B820026D455 /* libstb_image.a */; };
@@ -1169,6 +1169,8 @@
 		6B15907026623AE500944BBA /* 00_NotoSansThai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "00_NotoSansThai-Regular.ttf"; path = "../../data/00_NotoSansThai-Regular.ttf"; sourceTree = "<group>"; };
 		6B679E88266BFD090074AE2A /* 00_NotoNaskhArabic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "00_NotoNaskhArabic-Regular.ttf"; path = "../../data/00_NotoNaskhArabic-Regular.ttf"; sourceTree = "<group>"; };
 		6B9978341C89A316003B8AA0 /* editor.config */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = editor.config; path = ../../data/editor.config; sourceTree = "<group>"; };
+		8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlayWindowScaleAdjuster.swift; sourceTree = "<group>"; };
+		8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarplayPlaceholderView.swift; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* OMaps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OMaps.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		978D4A30199A11E600D72CA7 /* faq.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = faq.html; path = ../../data/faq.html; sourceTree = "<group>"; };
 		97A5967E19B9CD47007A963F /* copyright.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = copyright.html; path = ../../data/copyright.html; sourceTree = "<group>"; };
@@ -1619,7 +1621,6 @@
 		FA853BBA26BC3B8A0026D455 /* libkml.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libkml.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BBC26BC3B8A0026D455 /* libmap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libmap.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BBE26BC3B8A0026D455 /* minizip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = minizip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA853BC026BC3B8A0026D455 /* liboauthcpp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liboauthcpp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BC226BC3B8A0026D455 /* libopening_hours.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libopening_hours.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BC426BC3B8A0026D455 /* libplatform.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libplatform.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BC626BC3B8A0026D455 /* libprotobuf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libprotobuf.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1635,7 +1636,6 @@
 		FA853BDA26BC54CD0026D455 /* libtraffic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libtraffic.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BDC26BC58570026D455 /* DatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BDE26BC58620026D455 /* libge0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libge0.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA853BE026BC58690026D455 /* libsdf_image.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsdf_image.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BE226BC58770026D455 /* libfreetype.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libfreetype.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BE426BC5B660026D455 /* libvulkan_wrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libvulkan_wrapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA853BE626BC5B820026D455 /* libstb_image.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libstb_image.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1698,7 +1698,6 @@
 				FA853BE726BC5B820026D455 /* libstb_image.a in Frameworks */,
 				FA853BE526BC5B660026D455 /* libvulkan_wrapper.a in Frameworks */,
 				FA853BE326BC58770026D455 /* libfreetype.a in Frameworks */,
-				FA853BE126BC58690026D455 /* libsdf_image.a in Frameworks */,
 				FA853BDF26BC58620026D455 /* libge0.a in Frameworks */,
 				FA853BDD26BC58570026D455 /* DatePicker.framework in Frameworks */,
 				FA853BDB26BC54CD0026D455 /* libtraffic.a in Frameworks */,
@@ -1718,7 +1717,6 @@
 				FA853BBB26BC3B8A0026D455 /* libkml.a in Frameworks */,
 				FA853BBD26BC3B8A0026D455 /* libmap.a in Frameworks */,
 				FA853BBF26BC3B8A0026D455 /* minizip.framework in Frameworks */,
-				FA853BC126BC3B8A0026D455 /* liboauthcpp.a in Frameworks */,
 				FA853BC326BC3B8A0026D455 /* libopening_hours.a in Frameworks */,
 				FA853BC526BC3B8A0026D455 /* libplatform.a in Frameworks */,
 				FA853BC726BC3B8A0026D455 /* libprotobuf.a in Frameworks */,
@@ -1845,7 +1843,6 @@
 				FA853BE626BC5B820026D455 /* libstb_image.a */,
 				FA853BE426BC5B660026D455 /* libvulkan_wrapper.a */,
 				FA853BE226BC58770026D455 /* libfreetype.a */,
-				FA853BE026BC58690026D455 /* libsdf_image.a */,
 				FA853BDE26BC58620026D455 /* libge0.a */,
 				FA853BDC26BC58570026D455 /* DatePicker.framework */,
 				FA853BDA26BC54CD0026D455 /* libtraffic.a */,
@@ -1865,7 +1862,6 @@
 				FA853BBA26BC3B8A0026D455 /* libkml.a */,
 				FA853BBC26BC3B8A0026D455 /* libmap.a */,
 				FA853BBE26BC3B8A0026D455 /* minizip.framework */,
-				FA853BC026BC3B8A0026D455 /* liboauthcpp.a */,
 				FA853BC226BC3B8A0026D455 /* libopening_hours.a */,
 				FA853BC426BC3B8A0026D455 /* libplatform.a */,
 				FA853BC626BC3B8A0026D455 /* libprotobuf.a */,
@@ -2912,6 +2908,8 @@
 				CDCA273E2238087700167D87 /* MWMCarPlaySearchService.mm */,
 				CDCA2746223FD24600167D87 /* MWMCarPlaySearchResultObject.h */,
 				CDCA2747223FD24600167D87 /* MWMCarPlaySearchResultObject.mm */,
+				8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */,
+				8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */,
 			);
 			path = CarPlay;
 			sourceTree = "<group>";
@@ -4217,7 +4215,9 @@
 				F6E2FE4F1E097BA00083EBEC /* MWMActionBarButton.m in Sources */,
 				47F86CFF20C936FC00FEE291 /* TabView.swift in Sources */,
 				34AB66741FC5AA330078E451 /* BaseRoutePreviewStatus.swift in Sources */,
+				8C4FB9C72BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift in Sources */,
 				349D1CE41E3F836900A878FD /* UIViewController+Hierarchy.swift in Sources */,
+				8CB13C3B2BF1276A004288F2 /* CarplayPlaceholderView.swift in Sources */,
 				CDB4D4E1222D70DF00104869 /* CarPlayMapViewController.swift in Sources */,
 				471AB98923AA8A3500F56D49 /* IDownloaderDataSource.swift in Sources */,
 				EDE243E72B6D55610057369B /* InfoView.swift in Sources */,

@@ -579,7 +579,6 @@ railway-rail-tourism-bridge                         # pathtext z14- (also has li
 railway-rail-tourism-tunnel                         # pathtext z14- (also has line z10-, line::dash z16-, line(casing) z14-)
 waterway-dam                                        # pathtext z15- (also has line z14-, area z14-)
 waterway-river                                      # pathtext z11- (also has line z10-)
-waterway-riverbank                                  # pathtext z11- (also has line z10-, area z1-)
 === 3150
 
 highway-unclassified                                # pathtext z13- (also has line z11-)
@@ -663,7 +662,7 @@ highway-cycleway-tunnel                             # pathtext z15- (also has li
 area:highway-footway                                # caption z15- (also has area z14-)
 highway-footway                                     # pathtext z15- (also has line z15-)
 highway-footway-area                                # pathtext z15- (also has line z15-, area z14-)
-highway-footway-bicycle                             # pathtext z15- (also has line z14-, line::cycleline z14-)
+highway-footway-bicycle                             # pathtext z15- (also has line z15-, line::cycleline z15-)
 highway-footway-bridge                              # pathtext z15- (also has line z15-, line::bridgeblack z17-, line::bridgewhite z15-)
 highway-footway-tunnel                              # pathtext z15- (also has line z15-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 highway-tertiary_link                               # pathtext z18- (also has line z14-)

@@ -15,6 +15,7 @@ namespace
 {
 NSString * const kUserDefaultsTTSLanguageBcp47 = @"UserDefaultsTTSLanguageBcp47";
 NSString * const kIsTTSEnabled = @"UserDefaultsNeedToEnableTTS";
+NSString * const kIsStreetNamesTTSEnabled = @"UserDefaultsNeedToEnableStreetNamesTTS";
 NSString * const kDefaultLanguage = @"en-US";
 
 std::vector<std::pair<std::string, std::string>> availableLanguages()
@@ -106,6 +107,10 @@ using Observers = NSHashTable<Observer>;
       LOG(LWARNING, ("[ setCategory]] error.", [err localizedDescription]));
     }
 
+    // Set initial StreetNamesTTS setting
+    NSDictionary *dictionary = @{ kIsStreetNamesTTSEnabled : @NO };
+    [NSUserDefaults.standardUserDefaults registerDefaults:dictionary];
+    
     self.active = YES;
   }
   return self;
@@ -138,6 +143,14 @@ using Observers = NSHashTable<Observer>;
   [tts onTTSStatusUpdated];
   if (enabled)
     [tts setActive:YES];
+}
++ (BOOL)isStreetNamesTTSEnabled { return [NSUserDefaults.standardUserDefaults boolForKey:kIsStreetNamesTTSEnabled]; }
++ (void)setStreetNamesTTSEnabled:(BOOL)enabled {
+  if ([self isStreetNamesTTSEnabled] == enabled)
+    return;
+  NSUserDefaults * ud = NSUserDefaults.standardUserDefaults;
+  [ud setBool:enabled forKey:kIsStreetNamesTTSEnabled];
+  [ud synchronize];
 }
 
 - (void)setActive:(BOOL)active {
@@ -234,7 +247,9 @@ using Observers = NSHashTable<Observer>;
     }
     if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
                                                  mode:mode
-                                              options:AVAudioSessionCategoryOptionMixWithOthers | AVAudioSessionCategoryOptionDuckOthers
+                                              options:
+                                                  AVAudioSessionCategoryOptionInterruptSpokenAudioAndMixWithOthers |
+                                                  AVAudioSessionCategoryOptionDuckOthers
                                                 error:nil] ||
         ![[AVAudioSession sharedInstance] setActive:YES error:nil])
       return;

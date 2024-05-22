@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
+
 project(omim C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -68,7 +69,7 @@ endif()
 option(WITH_SYSTEM_PROVIDED_3PARTY "Enable compilation with system provided dependencies" OFF)
 set(OMIM_ROOT ${CMAKE_SOURCE_DIR})
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${OMIM_ROOT}/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 include(OmimHelpers)
 include(OmimTesting)
@@ -311,6 +312,8 @@ endif()
 
 # Should be on the root level, not in 3party, so tests can get these dependencies.
 if (PLATFORM_LINUX OR PLATFORM_WIN)
+  # https://gitlab.kitware.com/cmake/cmake/-/issues/25892
+  set(ICU_FIND_QUIETLY ON)
   find_package(ICU COMPONENTS uc i18n data REQUIRED)
   find_package(Freetype REQUIRED)
   find_package(harfbuzz REQUIRED)
@@ -321,12 +324,17 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
   find_package(gflags REQUIRED)
 
   find_package(expat CONFIG REQUIRED)
+  find_package(GTest REQUIRED)
   find_package(jansson CONFIG REQUIRED)
+  find_package(Protobuf REQUIRED)
   find_package(pugixml REQUIRED)
   find_package(utf8cpp REQUIRED)
 endif()
 
 find_package(ZLIB REQUIRED)
+
+find_package(Boost REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
 
 # Include 3party dependencies.
 add_subdirectory(3party)

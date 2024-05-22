@@ -74,9 +74,9 @@ public:
       : LocationService(observer), m_reportFirstEvent(true)
     {
 #if defined(QT_LOCATION_SERVICE)
-#if defined(OMIM_OS_LINUX)
+#if defined(OMIM_OS_LINUX) || defined(OMIM_OS_WINDOWS)
       m_services.push_back(CreateQtLocationService(*this, "geoclue2"));
-#endif // OMIM_OS_LINUX
+#endif // OMIM_OS_LINUX || OMIM_OS_WINDOWS
 #elif defined(OMIM_OS_MAC) // No QT_LOCATION_SERVICE
       m_services.push_back(CreateAppleLocationService(*this));
 #endif // QT_LOCATION_SERVICE

@@ -215,8 +215,8 @@ string FormatOsmLink(double lat, double lon, int zoom)
 
   for (int i = 0; i < (zoom + 8) % 3; ++i)
     osmUrl += "-";
-
-  return osmUrl + "?m=";
+  // ?m tells OSM to display a marker 
+  return osmUrl + "?m";
 }
 
 bool OSMDistanceToMeters(string const & osmRawValue, double & outMeters)
@@ -268,7 +268,7 @@ bool OSMDistanceToMeters(string const & osmRawValue, double & outMeters)
   case ';': return false;
   }
 
-  while (*stop && isspace(*stop))
+  while (*stop && std::isspace(static_cast<unsigned char>(*stop)))
     ++stop;
 
   // Default units - meters.

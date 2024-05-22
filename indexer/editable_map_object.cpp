@@ -242,6 +242,7 @@ bool EditableMapObject::IsValidMetadata(MetadataID type, std::string const & val
   switch (type)
   {
   case MetadataID::FMD_WEBSITE: return ValidateWebsite(value);
+  case MetadataID::FMD_WEBSITE_MENU: return ValidateWebsite(value);
   case MetadataID::FMD_CONTACT_FACEBOOK: return ValidateFacebookPage(value);
   case MetadataID::FMD_CONTACT_INSTAGRAM: return ValidateInstagramPage(value);
   case MetadataID::FMD_CONTACT_TWITTER: return ValidateTwitterPage(value);
@@ -276,6 +277,7 @@ void EditableMapObject::SetMetadata(MetadataID type, std::string value)
   switch (type)
   {
   case MetadataID::FMD_WEBSITE: value = ValidateAndFormat_website(value); break;
+  case MetadataID::FMD_WEBSITE_MENU: value = ValidateAndFormat_website(value); break;
   case MetadataID::FMD_CONTACT_FACEBOOK: value = ValidateAndFormat_facebook(value); break;
   case MetadataID::FMD_CONTACT_INSTAGRAM: value = ValidateAndFormat_instagram(value); break;
   case MetadataID::FMD_CONTACT_TWITTER: value = ValidateAndFormat_twitter(value); break;
@@ -352,25 +354,17 @@ void EditableMapObject::SetCuisines(std::vector<std::string> const & cuisines)
 
 void EditableMapObject::SetPointType() { m_geomType = feature::GeomType::Point; }
 
-void EditableMapObject::RemoveBlankAndDuplicationsForDefault()
+void EditableMapObject::RemoveBlankNames()
 {
   StringUtf8Multilang editedName;
-  string_view defaultName;
-  m_name.GetString(StringUtf8Multilang::kDefaultCode, defaultName);
 
-  m_name.ForEach([&defaultName, &editedName](int8_t langCode, string_view name)
+  m_name.ForEach([&editedName](int8_t langCode, string_view name)
   {
-    auto const duplicate = langCode != StringUtf8Multilang::kDefaultCode && defaultName == name;
-    if (!name.empty() && !duplicate)
+    if (!name.empty())
       editedName.AddString(langCode, name);
   });
 
   m_name = editedName;
-}
-
-void EditableMapObject::RemoveNeedlessNames()
-{
-  RemoveBlankAndDuplicationsForDefault();
 }
 
 // static

@@ -44,8 +44,6 @@ set(SRC
   glsl_func.hpp
   glsl_types.hpp
   glyph.hpp
-  glyph_generator.cpp
-  glyph_generator.hpp
   glyph_manager.cpp
   glyph_manager.hpp
   gpu_buffer.cpp
@@ -161,7 +159,7 @@ omim_add_library(${PROJECT_NAME} ${SRC})
 # Do not include glm's CMakeLists.txt, because it's outdated and not necessary.
 target_include_directories(${PROJECT_NAME} PUBLIC ${OMIM_ROOT}/3party/glm)
 
-if (PLATFORM_LINUX)
+if (PLATFORM_LINUX OR PLATFORM_WIN)
   find_package(OpenGL)
 endif()
 
@@ -174,12 +172,12 @@ target_link_libraries(${PROJECT_NAME}
   Freetype::Freetype
   vulkan_wrapper
   stb_image
-  sdf_image
   harfbuzz
   ICU::i18n
   expat::expat
   $<$<BOOL:${PLATFORM_MAC}>:-framework\ OpenGL>
   $<$<BOOL:${PLATFORM_LINUX}>:OpenGL::GL>
+  $<$<BOOL:${PLATFORM_WIN}>:OpenGL::GL>
 )
 
 omim_add_test_subdirectory(drape_tests)

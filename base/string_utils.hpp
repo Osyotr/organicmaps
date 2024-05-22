@@ -142,14 +142,26 @@ inline std::string DebugPrint(UniString const & s) { return ToUtf8(s); }
 
 template <typename DelimFn, typename Iter> class TokenizeIteratorBase
 {
+  template<typename ...>
+  struct is_utf8cpp_iterator : std::false_type {};
+
+  template<typename... Args>
+  struct is_utf8cpp_iterator<utf8::unchecked::iterator<Args...>> : std::true_type {};
+
 public:
   using difference_type = std::ptrdiff_t;
   using iterator_category = std::input_iterator_tag;
 
-  // Hack to get buffer pointer from any iterator.
-  // Deliberately made non-static to simplify the call like this->ToCharPtr.
-  char const * ToCharPtr(char const * p) const { return p; }
-  template <class T> auto ToCharPtr(T const & i) const { return ToCharPtr(i.base()); }
+  // Hack to get std::string_view from any iterator.
+  // Deliberately made non-static to simplify the call like this->ToStringView.
+  template<class T>
+  std::string_view ToStringView(T first, T last) const
+  {
+    if constexpr (is_utf8cpp_iterator<T>::value)
+      return this->ToStringView(first.base(), last.base());
+    else
+      return first != last ? std::string_view(first.operator->(), last - first) : std::string_view();
+  }
 };
 
 template <typename DelimFn, typename Iter, bool KeepEmptyTokens = false>
@@ -166,8 +178,7 @@ public:
   {
     ASSERT(m_start != m_finish, ("Dereferencing of empty iterator."));
 
-    auto const baseI = this->ToCharPtr(m_start);
-    return std::string_view(baseI, std::distance(baseI, this->ToCharPtr(m_end)));
+     return this->ToStringView(m_start, m_end);
   }
 
   UniString GetUniString() const
@@ -241,8 +252,7 @@ public:
   {
     ASSERT(!m_finished, ("Dereferencing of empty iterator."));
 
-    auto const baseI = this->ToCharPtr(m_start);
-    return std::string_view(baseI, std::distance(baseI, this->ToCharPtr(m_end)));
+     return this->ToStringView(m_start, m_end);
   }
 
   explicit operator bool() const { return !m_finished; }
@@ -361,37 +371,35 @@ UniChar LastUniChar(std::string const & s);
 //@{
 namespace internal
 {
-template <typename T, typename = std::enable_if_t<std::is_signed<T>::value &&
-                                                  sizeof(T) < sizeof(long long)>>
+template <typename T, std::enable_if_t<std::is_signed_v<T> && (sizeof(T) < sizeof(long)), int> = 0>
 long IntConverter(char const * start, char ** stop, int base)
 {
   return std::strtol(start, stop, base);
 }
 
-template <typename T, typename = std::enable_if_t<std::is_unsigned<T>::value &&
-                                                  sizeof(T) < sizeof(unsigned long long)>>
+template <typename T, std::enable_if_t<std::is_unsigned_v<T> && (sizeof(T) < sizeof(unsigned long)), int> = 0>
 unsigned long IntConverter(char const * start, char ** stop, int base)
 {
   return std::strtoul(start, stop, base);
 }
 
 template <typename T, typename = std::enable_if_t<std::is_signed<T>::value &&
-                                                  sizeof(T) == sizeof(long long)>>
+                                                  sizeof(T) >= sizeof(long)>>
 long long IntConverter(char const * start, char ** stop, int base)
 {
 #ifdef OMIM_OS_WINDOWS_NATIVE
-  return _strtoi64(start, &stop, base);
+  return _strtoi64(start, stop, base);
 #else
   return std::strtoll(start, stop, base);
 #endif
 }
 
 template <typename T, typename = std::enable_if_t<std::is_unsigned<T>::value &&
-                                                  sizeof(T) == sizeof(unsigned long long)>>
+                                                  sizeof(T) >= sizeof(unsigned long)>>
 unsigned long long IntConverter(char const * start, char ** stop, int base)
 {
 #ifdef OMIM_OS_WINDOWS_NATIVE
-  return _strtoui64(start, &stop, base);
+  return _strtoui64(start, stop, base);
 #else
   return std::strtoull(start, stop, base);
 #endif

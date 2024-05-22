@@ -557,22 +557,18 @@ UNIT_CLASS_TEST(MwmTestsFixture, Street_BusStop)
     TEST_LESS(SortedByDistance(range, center).first, 5000.0, ());
   }
 
-  /// @todo Actually, we have very fancy matching here, starting from 3rd result and below.
-  /// Interesting to check how it happens.
+  /// @todo Actually, we have fancy (distance and a building above a station) ranking here.
   {
     auto request = MakeRequest("Juncal train", "en");
     auto const & results = request->Results();
     TEST_GREATER(results.size(), kTopPoiResultsCount, ());
 
-    // -1 "Juncal" supermarket near the train station, 24km :)
-    // -2 Train station building in "Juncal" village, other MWM, >200km
-    // -3 Train station building near "Juncal" street, 28km
-    // -4 Railway station, same as (3)
-    // -5 Railway station, same as (2)
-    Range const range(results);
-    EqualClassifType(range, GetClassifTypes({{"shop", "supermarket"},
-                                             {"railway", "station"}, {"building", "train_station"}}));
-    TEST_LESS(SortedByDistance(Range(results, 0, 2), center).first, 23.0E3, ());
+    // -1 Train station building in "Juncal" village, other MWM, >200km
+    // -2 Train station building near "Juncal" street, 28km
+    // -3 Railway station, same as (2)
+    // -4 Railway station, same as (1)
+    Range const range(results, 0, 4);
+    EqualClassifType(range, GetClassifTypes({{"railway", "station"}, {"building", "train_station"}}));
   }
 }
 
@@ -1201,7 +1197,7 @@ UNIT_CLASS_TEST(MwmTestsFixture, San_Francisco)
     auto const & results = request->Results();
     TEST_GREATER(results.size(), kTopPoiResultsCount, ());
 
-    TEST_EQUAL(results[0].GetFeatureType(), cl.GetTypeByPath({"place", "city"}), ());
+    TEST_EQUAL(results[0].GetFeatureType(), cl.GetTypeByPath({"place", "city", "capital", "6"}), ());
     TEST_LESS(GetDistanceM(results[0], center), 4.2E6, ());
 
     TEST_EQUAL(results[1].GetFeatureType(), cl.GetTypeByPath({"shop", "laundry"}), ());
@@ -1246,6 +1242,77 @@ UNIT_CLASS_TEST(MwmTestsFixture, Opfikon_Viewport)
 
     TEST_GREATER(CountClassifType(allRange, cl.GetTypeByPath({"highway"})), 8, ());
     TEST_GREATER(CountClassifType(allRange, cl.GetTypeByPath({"amenity"})), 12, ());
+  }
+}
+
+UNIT_CLASS_TEST(MwmTestsFixture, PostOffice_Viewport)
+{
+  // Zurich
+  ms::LatLon const center(47.367006, 8.5430919);
+  SetViewportAndLoadMaps(center);
+
+  auto params = GetDefaultSearchParams("post office");
+  params.m_mode = search::Mode::Viewport;
+  params.m_maxNumResults = search::SearchParams::kDefaultNumResultsInViewport;
+
+  {
+    params.m_viewport = { 8.5130497227411314753, 53.90688220139293918, 8.5701093069557838788, 53.940255929097141063 };
+
+    auto request = MakeRequest(params);
+    auto const & results = request->Results();
+    TEST_GREATER(results.size(), kPopularPoiResultsCount, ());
+    Range allRange(results, true /* all */);
+
+    /// @todo office are near the "Poststrasse". Remove after fixing _near the street_ penalty.
+    EqualClassifType(allRange, GetClassifTypes({{"amenity", "post_office"}, {"office"}}));
+  }
+}
+
+UNIT_CLASS_TEST(MwmTestsFixture, NotAllTokens)
+{
+  auto const & cl = classif();
+
+  {
+    // Buenos Aires (Palermo)
+    ms::LatLon const center(-34.58524, -58.42516);
+    SetViewportAndLoadMaps(center);
+
+    auto request = MakeRequest("santander arcos");
+    auto const & results = request->Results();
+    TEST_GREATER(results.size(), kPopularPoiResultsCount, ());
+
+    // 5 out of 8 results are banks near Arcos/Marcos. No "Santander" streets occupation on top :)
+    TEST_GREATER(CountClassifType(Range(results, 0, 8), cl.GetTypeByPath({"amenity", "bank"})), 4, ());
+  }
+}
+
+UNIT_CLASS_TEST(MwmTestsFixture, CityWithCountry)
+{
+  auto const & cl = classif();
+
+  // "France_Provence-Alpes-Cote dAzur_Maritime Alps" should present!
+  RegisterLocalMapsByPrefix("France_Provence-Alpes-Cote dAzur");
+
+  // Buenos Aires (Palermo)
+  ms::LatLon const center(-34.58524, -58.42516);
+  SetViewportAndLoadMaps(center);
+
+  {
+    auto request = MakeRequest("Nice ");
+    auto const & results = request->Results();
+    TEST_GREATER(results.size(), kTopPoiResultsCount, ());
+
+    // Usually on 3rd place, because "Nice" is a commmon token for POI's name.
+    TEST_EQUAL(CountClassifType(Range(results, 0, kTopPoiResultsCount), cl.GetTypeByPath({"place", "city"})), 1, ());
+  }
+
+  {
+    auto request = MakeRequest("Nice France");
+    auto const & results = request->Results();
+    TEST_GREATER(results.size(), kTopPoiResultsCount, ());
+
+    // Should be on 1st place.
+    EqualClassifType(Range(results, 0, 1), GetClassifTypes({{"place", "city"}}));
   }
 }
 

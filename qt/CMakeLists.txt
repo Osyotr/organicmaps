@@ -1,5 +1,8 @@
 project(desktop)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+qt6_standard_project_setup()
+
 QT6_ADD_RESOURCES(RES_SOURCES res/resources.qrc)
 
 set(SRC
@@ -63,17 +66,22 @@ set(SRC
 
 omim_add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${RES_SOURCES} ${SRC})
 
+target_sources(${PROJECT_NAME} PRIVATE
+  res/windows.rc
+)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 
 target_link_libraries(${PROJECT_NAME}
-  generator  # For borders::LoadBorders
-  qt_common
-  map
-  gflags::gflags
+  PRIVATE
+    generator  # For borders::LoadBorders
+    qt_common
+    map
+    gflags::gflags
 )
 
 if (BUILD_DESIGNER)
-  target_link_libraries(${PROJECT_NAME} generator)
+  target_link_libraries(${PROJECT_NAME} PRIVATE generator)
   set(BUNDLE_NAME "OMaps.Designer")
   set(BUNDLE_DISPLAY_NAME "Organic Maps Designer")
   set(BUNDLE_ICON designer.icns)
@@ -262,3 +270,11 @@ elseif (BUILD_STANDALONE)
 endif()
 
 add_subdirectory(qt_common)
+
+if (PLATFORM_WIN)
+  qt_import_plugins(${PROJECT_NAME}
+    INCLUDE Qt6::QSchannelBackendPlugin
+  )
+endif()
+
+qt6_finalize_target(${PROJECT_NAME})

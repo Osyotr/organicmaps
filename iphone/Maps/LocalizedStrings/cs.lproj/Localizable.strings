@@ -254,6 +254,12 @@
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_enable_title" = "Hlasové instrukce";
 
+/* Settings «Route» category: «Tts announce street names» title */
+"pref_tts_street_names_title" = "Oznamujte názvy ulic";
+
+/* Settings «Route» category: «Tts announce street names» description */
+"pref_tts_street_names_description" = "Je-li povoleno, bude nahlas vyslovován název ulice nebo výjezdu, na který se má odbočit.";
+
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Jazyk hlasu";
 
@@ -863,7 +869,7 @@
 
 "editor_share_to_all_dialog_message_2" = "Redaktoři OpenStreetMap zkontrolují změny a budou vás kontaktovat, pokud budou mít nějaké dotazy.";
 
-"navigation_stop_button" = "stop";
+"navigation_stop_button" = "Stop";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Zakázat zaznamenávání vaší nedávno ujeté trasy?";
@@ -1260,6 +1266,18 @@
 
 /* Link to OSM wiki for Editor, Profile and About pages */
 "osm_wiki_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
+
+/* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
+"car_used_on_the_phone_screen" = "Na obrazovce telefonu nyní používáte aplikaci Organic Maps";
+
+/* Text on the phone placeholder screen that maps are displayed on the car screen */
+"car_used_on_the_car_screen" = "Na obrazovce auta nyní používáte aplikaci Organic Maps";
+
+/* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
+"car_continue_on_the_phone" = "Pokračujte v telefonu";
+
+/* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
+"car_continue_in_the_car" = "Na obrazovku auta";
 
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Pěší turistika";
@@ -2424,8 +2442,6 @@
 "type.landuse.construction" = "Construction Area";
 
 "type.landuse.education" = "Educational Facility";
-
-"type.landuse.farm" = "Farm";
 
 "type.landuse.farmland" = "Orná půda";
 
@@ -3813,8 +3829,6 @@
 "type.waterway.river" = "Řeka";
 
 "type.waterway.river.tunnel" = "Řeka";
-
-"type.waterway.riverbank" = "Řeka";
 
 "type.waterway.stream" = "Řeka";
 

@@ -254,6 +254,12 @@
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_enable_title" = "تعليمات صوتية";
 
+/* Settings «Route» category: «Tts announce street names» title */
+"pref_tts_street_names_title" = "أعلن أسماء الشوارع";
+
+/* Settings «Route» category: «Tts announce street names» description */
+"pref_tts_street_names_description" = "عند التمكين ، سيتم نطق اسم الشارع أو المخرج الذي سيتم تشغيله بصوت عالٍ.";
+
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "لغة الصوت";
 
@@ -1260,6 +1266,18 @@
 
 /* Link to OSM wiki for Editor, Profile and About pages */
 "osm_wiki_about_url" = "https://wiki.openstreetmap.org/wiki/Ar:About_OpenStreetMap";
+
+/* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
+"car_used_on_the_phone_screen" = "أنت الآن تستخدم الخرائط العضوية على شاشة الهاتف";
+
+/* Text on the phone placeholder screen that maps are displayed on the car screen */
+"car_used_on_the_car_screen" = "أنت الآن تستخدم الخرائط العضوية على شاشة السيارة";
+
+/* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
+"car_continue_on_the_phone" = "تواصل على الهاتف";
+
+/* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
+"car_continue_in_the_car" = "إلى شاشة السيارة";
 
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "جولة على الأقدام";
@@ -2424,8 +2442,6 @@
 "type.landuse.construction" = "منطقة بناء";
 
 "type.landuse.education" = "مؤسسة تعليمية";
-
-"type.landuse.farm" = "مزرعة";
 
 "type.landuse.farmland" = "حقل";
 
@@ -3813,8 +3829,6 @@
 "type.waterway.river" = "نهر";
 
 "type.waterway.river.tunnel" = "نهر";
-
-"type.waterway.riverbank" = "نهر";
 
 "type.waterway.stream" = "تيار مائي";
 

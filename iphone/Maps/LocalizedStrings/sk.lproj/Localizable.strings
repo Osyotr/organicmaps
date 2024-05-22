@@ -254,6 +254,12 @@
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_enable_title" = "Hlasové povely";
 
+/* Settings «Route» category: «Tts announce street names» title */
+"pref_tts_street_names_title" = "Oznámte názvy ulíc";
+
+/* Settings «Route» category: «Tts announce street names» description */
+"pref_tts_street_names_description" = "Keď je táto možnosť povolená, nahlas sa vysloví názov ulice alebo výjazdu, na ktorý sa má odbočiť.";
+
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Nastavenia jazyka povelov";
 
@@ -863,7 +869,7 @@
 
 "editor_share_to_all_dialog_message_2" = "Redaktori OpenStreetMap skontrolujú zmeny a budú vás kontaktovať, ak budú mať nejaké otázky.";
 
-"navigation_stop_button" = "stop";
+"navigation_stop_button" = "Stop";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Znemožniť nahrávanie vami nedávno precestovanej trasy?";
@@ -1260,6 +1266,18 @@
 
 /* Link to OSM wiki for Editor, Profile and About pages */
 "osm_wiki_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
+
+/* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
+"car_used_on_the_phone_screen" = "Na obrazovke telefónu teraz používate službu Organic Maps";
+
+/* Text on the phone placeholder screen that maps are displayed on the car screen */
+"car_used_on_the_car_screen" = "Na obrazovke auta teraz používate službu Organic Maps";
+
+/* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
+"car_continue_on_the_phone" = "Pokračujte v telefóne";
+
+/* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
+"car_continue_in_the_car" = "Na obrazovku auta";
 
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Turistika";
@@ -2424,8 +2442,6 @@
 "type.landuse.construction" = "Stavenisko";
 
 "type.landuse.education" = "Vzdelávacia inštitúcia";
-
-"type.landuse.farm" = "Statok";
 
 "type.landuse.farmland" = "Poľnohospodárska pôda";
 
@@ -3813,8 +3829,6 @@
 "type.waterway.river" = "Rieka";
 
 "type.waterway.river.tunnel" = "Rieka";
-
-"type.waterway.riverbank" = "Rieka";
 
 "type.waterway.stream" = "Potok";
 

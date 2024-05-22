@@ -54,7 +54,7 @@
         },
         "VCPKG_INSTALL_OPTIONS": {
           "type": "STRING",
-          "value": "--disable-metrics;--no-print-usage;--x-abi-tools-use-exact-versions;--clean-buildtrees-after-build;--clean-packages-after-build;--x-buildtrees-root=${sourceDir}/out/btrees"
+          "value": "--disable-metrics;--no-print-usage;--x-abi-tools-use-exact-versions;--clean-buildtrees-after-build;--clean-packages-after-build"
         }
       },
       "condition": {

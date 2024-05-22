@@ -268,6 +268,12 @@ void MapWidget::Build()
                            QVector4D(1.0, -1.0, 1.0, 0.0)};
   m_vbo->allocate(static_cast<void*>(vertices), sizeof(vertices));
 
+  QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
+  // 0-index of the buffer is linked to "a_position" attribute in vertex shader.
+  // Introduced in https://github.com/organicmaps/organicmaps/pull/9814
+  f->glEnableVertexAttribArray(0);
+  f->glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(QVector4D), nullptr);
+
   m_program->release();
   m_vao->release();
 }
@@ -339,6 +345,8 @@ void MapWidget::ShowInfoPopup(QMouseEvent * e, m2::PointD const & pt)
 
 void MapWidget::initializeGL()
 {
+  QOpenGLWidget::initializeGL();
+
   ASSERT(m_contextFactory == nullptr, ());
   if (!m_screenshotMode)
     m_ratio = devicePixelRatio();
@@ -419,9 +427,6 @@ void MapWidget::paintGL()
 
     int const samplerSizeLocation = m_program->uniformLocation("u_samplerSize");
     m_program->setUniformValue(samplerSizeLocation, samplerSize);
-
-    m_program->enableAttributeArray("a_position");
-    m_program->setAttributeBuffer("a_position", GL_FLOAT, 0, 4, 0);
 
     funcs->glClearColor(0.0, 0.0, 0.0, 1.0);
     funcs->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

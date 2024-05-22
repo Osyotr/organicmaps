@@ -340,7 +340,6 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
   find_package(gflags REQUIRED)
 
   find_package(expat CONFIG REQUIRED)
-  find_package(GTest REQUIRED)
   find_package(jansson CONFIG REQUIRED)
   find_package(Protobuf REQUIRED)
   find_package(pugixml REQUIRED)
@@ -349,7 +348,7 @@ endif()
 
 find_package(ZLIB REQUIRED)
 
-find_package(Boost REQUIRED)
+find_package(Boost CONFIG REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
 # Include 3party dependencies.

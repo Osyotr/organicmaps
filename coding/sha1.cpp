@@ -19,15 +19,11 @@ namespace
 {
 SHA1::Hash ExtractHash(boost::uuids::detail::sha1 & sha1)
 {
-  uint32_t digest[5];
+  unsigned char digest[20];
   sha1.get_digest(digest);
   for (auto & b : digest)
     b = boost::core::byteswap(b);
-
-  SHA1::Hash result;
-  static_assert(result.size() == sizeof(digest));
-  std::copy_n(reinterpret_cast<uint8_t const *>(digest), sizeof(digest), std::begin(result));
-  return result;
+  return std::to_array(digest);
 }
 }
 

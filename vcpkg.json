@@ -1,5 +1,5 @@
 {
-  "builtin-baseline": "11ed79186fe850bd3a98cfbf1854514d2b3070a2",
+  "builtin-baseline": "4f746bc66438fce2b900c3ba6094a483b871b045",
   "dependencies": [
     "boost-circular-buffer",
     "boost-geometry",

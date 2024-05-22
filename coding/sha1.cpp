@@ -10,6 +10,8 @@
 #include <boost/core/bit.hpp>
 #include <boost/uuid/detail/sha1.hpp>
 
+#include <xxhash.h>
+
 #include <algorithm>
 #include <vector>
 
@@ -75,3 +77,51 @@ SHA1::Hash SHA1::CalculateForString(std::string_view str)
   return ExtractHash(sha1);
 }
 }  // coding
+
+
+uint64_t Calculate(std::string const & filePath)
+{
+  uint32_t constexpr kFileBufferSize = 8192;
+  try
+  {
+    base::FileData file(filePath, base::FileData::Op::READ);
+    uint64_t const fileSize = file.Size();
+
+    struct XXH3StateDeleter
+    {
+      void operator()(XXH3_state_t * p) const
+      {
+        (void)XXH3_freeState(p);
+      }
+    };
+    using XXH3StatePtr = std::unique_ptr<XXH3_state_t, XXH3StateDeleter>;
+    XXH3StatePtr state = XXH3StatePtr(XXH3_createState());
+    if (!state)
+    {
+      LOG(LERROR, ("Could not create XXH3 state."));
+      return {};
+    }
+
+    uint64_t currSize = 0;
+    unsigned char buffer[kFileBufferSize];
+    while (currSize < fileSize)
+    {
+      auto const toRead = std::min(kFileBufferSize, static_cast<uint32_t>(fileSize - currSize));
+      file.Read(currSize, buffer, toRead);
+      XXH3_64bits_update(state.get(), buffer, toRead);
+      currSize += toRead;
+    }
+
+    return XXH3_64bits_digest(state.get());
+  }
+  catch (Reader::Exception const & ex)
+  {
+    LOG(LERROR, ("Error reading file:", filePath, ex.what()));
+  }
+  return {};
+}
+
+uint64_t CalculateForString(std::string_view data)
+{
+  return XXH3_64bits(data.data(), data.size());
+}

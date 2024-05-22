@@ -75,3 +75,16 @@ add_subdirectory(vulkan_wrapper)
 if (PLATFORM_DESKTOP)
   add_subdirectory(libtess2)
 endif()
+
+include(FetchContent)
+FetchContent_Declare(
+  xxHash
+  GIT_REPOSITORY https://github.com/Cyan4973/xxHash.git
+  GIT_TAG        bbb27a5efb85b92a0486cf361a8635715a53f6ba # v0.8.2
+  SOURCE_SUBDIR cmake_unofficial
+  #FIND_PACKAGE_ARGS NAMES xxHash
+)
+
+set(BUILD_SHARED_LIBS OFF)
+set(XXHASH_BUILD_XXHSUM OFF)
+FetchContent_MakeAvailable(xxHash)

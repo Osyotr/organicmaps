@@ -60,8 +60,7 @@ set(SRC
   utm_mgrs_utils.hpp
 )
 
-if (NOT SKIP_QT_GUI AND PLATFORM_DESKTOP AND PLATFORM_LINUX)
-  message("Building with Qt Positioning")
+if (NOT SKIP_QT_GUI AND PLATFORM_DESKTOP AND (PLATFORM_LINUX OR PLATFORM_WIN))
   find_package(Qt6 REQUIRED COMPONENTS Positioning)
   set(QT_POSITIONING true)
   append(SRC
@@ -69,7 +68,6 @@ if (NOT SKIP_QT_GUI AND PLATFORM_DESKTOP AND PLATFORM_LINUX)
     qt_location_service.cpp
   )
 else()
-  message("Building without Qt Positioning")
   set(QT_POSITIONING false)
 endif()
 
@@ -203,6 +201,10 @@ target_link_libraries(${PROJECT_NAME}
     >
   $<$<BOOL:${PLATFORM_WIN}>:bcrypt> # For boost::uuid
 )
+
+if (PLATFORM_WIN)
+  target_link_libraries(${PROJECT_NAME} shlwapi)
+endif()
 
 omim_add_test_subdirectory(platform_tests_support)
 omim_add_test_subdirectory(platform_tests)

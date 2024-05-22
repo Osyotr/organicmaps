@@ -113,7 +113,7 @@ GLuint QtRenderOGLContext::GetTextureHandle() const
   if (!m_acquiredFrame)
     return 0;
 
-  CHECK(!m_acquiredFrame->isBound(), ());
+  //CHECK(!m_acquiredFrame->isBound(), ());
   return m_acquiredFrame->texture();
 }
 

@@ -24,6 +24,9 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
   add_subdirectory(expat/expat)
   add_library(expat::expat ALIAS expat)
 
+  # Add GTest library.
+  add_subdirectory(googletest)
+
   # Configure Jansson library.
   set(JANSSON_BUILD_DOCS OFF)
   set(JANSSON_BUILD_MAN OFF)
@@ -63,8 +66,25 @@ add_subdirectory(opening_hours)
 add_subdirectory(stb_image)
 add_subdirectory(succinct)
 
+add_library(fast_double_parser INTERFACE)
+add_library(fast_double_parser::fast_double_parser ALIAS fast_double_parser)
+target_include_directories(fast_double_parser INTERFACE "${OMIM_ROOT}/3party/fast_double_parser/include")
+
 add_subdirectory(vulkan_wrapper)
 
 if (PLATFORM_DESKTOP)
   add_subdirectory(libtess2)
 endif()
+
+include(FetchContent)
+FetchContent_Declare(
+  xxHash
+  GIT_REPOSITORY https://github.com/Cyan4973/xxHash.git
+  GIT_TAG        bbb27a5efb85b92a0486cf361a8635715a53f6ba # v0.8.2
+  SOURCE_SUBDIR cmake_unofficial
+  #FIND_PACKAGE_ARGS NAMES xxHash
+)
+
+set(BUILD_SHARED_LIBS OFF)
+set(XXHASH_BUILD_XXHSUM OFF)
+FetchContent_MakeAvailable(xxHash)

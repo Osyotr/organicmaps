@@ -17,6 +17,7 @@ public:
     ASSERT(m_indexer == nullptr, ());
   }
 
+  #undef FindResource
   ref_ptr<ResourceInfo> FindResource(Key const & key, bool & newResource) override
   {
     ASSERT(m_indexer != nullptr, ());

@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Doe para criarmos juntos os melhores mapas!";
 
+"already_donated" = "Já doei";
+
+"remind_me_later" = "Lembre-me mais tarde";
+
+"support_organic_maps" = "Apoie o Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Direitos autorais";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operador: %@";
 
+"editor_category_unsuitable_title" = "Você não encontra uma categoria adequada?";
+
+"editor_category_unsuitable_text" = "O Organic Maps permite que você adicione apenas categorias de pontos simples, o que significa que não há cidades, estradas, lagos, contornos de edifícios etc. Por favor, adicione essas categorias diretamente no <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Consulte nosso <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">guia</a> para obter instruções detalhadas passo a passo.";
+
 "downloader_no_downloaded_maps_title" = "Você não fez o download de nenhum mapa";
 
 "downloader_no_downloaded_maps_message" = "Baixe mapas para pesquisar locais e usar navegação offline.";
@@ -794,6 +804,8 @@
 "hour" = "h";
 
 "minute" = "min";
+
+"day" = "dia";
 
 "placepage_more_button" = "Mais";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Estação de metrô";
 
+"type.railway.station.subway.hongkong" = "Estação de metrô";
+
 "type.railway.station.subway.isfahan" = "Estação de metrô";
 
 "type.railway.station.subway.istanbul" = "Estação de metrô";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Entrada do metrô";
 
 "type.railway.subway_entrance.hiroshima" = "Entrada do metrô";
+
+"type.railway.subway_entrance.hongkong" = "Entrada do metrô";
 
 "type.railway.subway_entrance.isfahan" = "Entrada do metrô";
 

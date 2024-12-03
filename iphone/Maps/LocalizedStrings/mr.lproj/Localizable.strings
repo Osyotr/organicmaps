@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "एकत्र सर्वोत्तम नकाशे तयार करण्यासाठी देणगी द्या!";
 
+"already_donated" = "आधीच दान केले";
+
+"remind_me_later" = "नंतर आठवण करून द्या";
+
+"support_organic_maps" = "Organic Maps ला समर्थन द्या";
+
 /* Button in the main Help dialog */
 "copyright" = "प्रकाशन अधिकार (कॉपीराईट)";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "ऑपरेटर: %@";
 
+"editor_category_unsuitable_title" = "योग्य श्रेणी शोधू शकत नाही?";
+
+"editor_category_unsuitable_text" = "ऑरगॅनिक नकाशे फक्त साध्या बिंदू श्रेणी जोडण्याची परवानगी देतात, म्हणजे शहरे, रस्ते, तलाव, इमारत बाह्यरेखा इ. कृपया अशा श्रेणी थेट <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> वर जोडा. तपशीलवार चरण-दर-चरण सूचनांसाठी आमचे <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">मार्गदर्शक</a> पहा.";
+
 "downloader_no_downloaded_maps_title" = "तुम्ही कोणतेही नकाशे डाउनलोड केलेले नाहीत";
 
 "downloader_no_downloaded_maps_message" = "स्थान शोधण्यासाठी नकाशे डाउनलोड करा आणि ऑफलाइन मार्गनिर्देशन वापरा.";
@@ -794,6 +804,8 @@
 "hour" = "तास";
 
 "minute" = "मिनिट";
+
+"day" = "दि";
 
 "placepage_more_button" = "अधिक";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "भुयारी मार्ग";
 
+"type.railway.station.subway.hongkong" = "भुयारी मार्ग";
+
 "type.railway.station.subway.isfahan" = "भुयारी मार्ग";
 
 "type.railway.station.subway.istanbul" = "भुयारी मार्ग";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "भुयारी प्रवेशद्वार";
 
 "type.railway.subway_entrance.hiroshima" = "भुयारी प्रवेशद्वार";
+
+"type.railway.subway_entrance.hongkong" = "भुयारी प्रवेशद्वार";
 
 "type.railway.subway_entrance.isfahan" = "भुयारी प्रवेशद्वार";
 

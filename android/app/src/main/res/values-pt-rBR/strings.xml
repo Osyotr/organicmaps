@@ -256,8 +256,6 @@
     <!-- Button in the main menu -->
     <string name="donate">Doar</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">Apoie o projeto</string>
-    <!-- Button in the main Help dialog -->
     <string name="copyright">Direitos autorais</string>
     <!-- Text in menu + Button in the main Help dialog -->
     <string name="report_a_bug">Relatar um problema</string>
@@ -493,6 +491,7 @@
     <string name="miles_per_hour">mph</string>
     <string name="hour">h</string>
     <string name="minute">min</string>
+    <string name="day">dia</string>
     <string name="placepage_more_button">Mais</string>
     <!-- A referral link on the place page for some hotels -->
     <string name="more_on_kayak">Fotos, avaliações, reservas</string>
@@ -1493,6 +1492,7 @@
     <string name="type.railway.station.subway.hamburg">Estação de metrô</string>
     <string name="type.railway.station.subway.helsinki">Estação de metrô</string>
     <string name="type.railway.station.subway.hiroshima">Estação de metrô</string>
+    <string name="type.railway.station.subway.hongkong">Estação de metrô</string>
     <string name="type.railway.station.subway.isfahan">Estação de metrô</string>
     <string name="type.railway.station.subway.istanbul">Estação de metrô</string>
     <string name="type.railway.station.subway.izmir">Estação de metrô</string>
@@ -1608,6 +1608,7 @@
     <string name="type.railway.subway_entrance.hamburg">Entrada do metrô</string>
     <string name="type.railway.subway_entrance.helsinki">Entrada do metrô</string>
     <string name="type.railway.subway_entrance.hiroshima">Entrada do metrô</string>
+    <string name="type.railway.subway_entrance.hongkong">Entrada do metrô</string>
     <string name="type.railway.subway_entrance.isfahan">Entrada do metrô</string>
     <string name="type.railway.subway_entrance.istanbul">Entrada do metrô</string>
     <string name="type.railway.subway_entrance.izmir">Entrada do metrô</string>

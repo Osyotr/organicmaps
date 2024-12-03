@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "एक साथ सर्वोत्तम मानचित्र बनाने के लिए दान करें!";
 
+"already_donated" = "पहले से दान";
+
+"remind_me_later" = "बाद में याद दिलाना";
+
+"support_organic_maps" = "Organic Maps का समर्थन करें";
+
 /* Button in the main Help dialog */
 "copyright" = "कॉपीराइट";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "ऑपरेटर: %@";
 
+"editor_category_unsuitable_title" = "कोई उपयुक्त श्रेणी नहीं मिल रही?";
+
+"editor_category_unsuitable_text" = "ऑर्गेनिक मैप्स केवल सरल बिंदु श्रेणियां जोड़ने की अनुमति देता है, जिसका अर्थ है कि शहर, सड़कें, झीलें, भवन की रूपरेखा आदि नहीं। कृपया ऐसी श्रेणियां सीधे <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> पर जोड़ें।. विस्तृत चरण-दर-चरण निर्देशों के लिए हमारी <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">मार्गदर्शिका</a> देखें।";
+
 "downloader_no_downloaded_maps_title" = "You haven't downloaded any maps";
 
 "downloader_no_downloaded_maps_message" = "Download maps to search and navigate offline.";
@@ -794,6 +804,8 @@
 "hour" = "घंटे";
 
 "minute" = "मिनट";
+
+"day" = "दिन";
 
 "placepage_more_button" = "More";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Subway Station";
 
+"type.railway.station.subway.hongkong" = "Subway Station";
+
 "type.railway.station.subway.isfahan" = "Subway Station";
 
 "type.railway.station.subway.istanbul" = "Subway Station";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Subway Entrance";
 
 "type.railway.subway_entrance.hiroshima" = "Subway Entrance";
+
+"type.railway.subway_entrance.hongkong" = "Subway Entrance";
 
 "type.railway.subway_entrance.isfahan" = "Subway Entrance";
 

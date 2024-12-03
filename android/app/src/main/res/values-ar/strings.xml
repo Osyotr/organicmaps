@@ -555,6 +555,7 @@
     <string name="miles_per_hour">ميل/ساعة</string>
     <string name="hour">س</string>
     <string name="minute">د</string>
+    <string name="day">يوم</string>
     <string name="placepage_more_button">المزيد</string>
     <!-- A referral link on the place page for some hotels -->
     <string name="more_on_kayak">الصور والتعليقات والحجز</string>
@@ -1718,6 +1719,7 @@
     <string name="type.railway.station.subway.hamburg">محطة مترو</string>
     <string name="type.railway.station.subway.helsinki">محطة مترو</string>
     <string name="type.railway.station.subway.hiroshima">محطة مترو</string>
+    <string name="type.railway.station.subway.hongkong">محطة مترو</string>
     <string name="type.railway.station.subway.isfahan">محطة مترو</string>
     <string name="type.railway.station.subway.istanbul">محطة مترو</string>
     <string name="type.railway.station.subway.izmir">محطة مترو</string>
@@ -1830,6 +1832,7 @@
     <string name="type.railway.subway_entrance.hamburg">مدخل المترو</string>
     <string name="type.railway.subway_entrance.helsinki">مدخل المترو</string>
     <string name="type.railway.subway_entrance.hiroshima">مدخل المترو</string>
+    <string name="type.railway.subway_entrance.hongkong">مدخل المترو</string>
     <string name="type.railway.subway_entrance.isfahan">مدخل المترو</string>
     <string name="type.railway.subway_entrance.istanbul">مدخل المترو</string>
     <string name="type.railway.subway_entrance.izmir">مدخل المترو</string>

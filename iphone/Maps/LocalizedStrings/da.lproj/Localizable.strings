@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Donér for at bygge de bedste kort sammen!";
 
+"already_donated" = "Allerede doneret";
+
+"remind_me_later" = "Mind mig senere";
+
+"support_organic_maps" = "Støtte Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Copyright";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operatør: %@";
 
+"editor_category_unsuitable_title" = "Kan du ikke finde en passende kategori?";
+
+"editor_category_unsuitable_text" = "Organic Maps giver kun mulighed for at tilføje simple punktkategorier, dvs. ingen byer, veje, søer, bygningsomrids osv. Tilføj venligst sådanne kategorier direkte til <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Se vores <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">guide</a> for detaljerede trin for trin-instruktioner.";
+
 "downloader_no_downloaded_maps_title" = "Du har ikke hentet alle kort";
 
 "downloader_no_downloaded_maps_message" = "Download kort for at finde position og navigere offline.";
@@ -794,6 +804,8 @@
 "hour" = "time";
 
 "minute" = "min";
+
+"day" = "d";
 
 "placepage_more_button" = "Mere";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Metro";
 
+"type.railway.station.subway.hongkong" = "Metro";
+
 "type.railway.station.subway.isfahan" = "Metro";
 
 "type.railway.station.subway.istanbul" = "Metro";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Indgang til undergrundsbane";
 
 "type.railway.subway_entrance.hiroshima" = "Indgang til undergrundsbane";
+
+"type.railway.subway_entrance.hongkong" = "Indgang til undergrundsbane";
 
 "type.railway.subway_entrance.isfahan" = "Indgang til undergrundsbane";
 

@@ -548,6 +548,7 @@
     <string name="miles_per_hour">ми/ч</string>
     <string name="hour">ч</string>
     <string name="minute">мин</string>
+    <string name="day">д</string>
     <string name="placepage_more_button">Ещё</string>
     <!-- A referral link on the place page for some hotels -->
     <string name="more_on_kayak">Фотографии, отзывы, бронирование</string>
@@ -1782,6 +1783,7 @@
     <string name="type.railway.station.subway.hamburg">Метро</string>
     <string name="type.railway.station.subway.helsinki">Метро</string>
     <string name="type.railway.station.subway.hiroshima">Метро</string>
+    <string name="type.railway.station.subway.hongkong">Метро</string>
     <string name="type.railway.station.subway.isfahan">Метро</string>
     <string name="type.railway.station.subway.istanbul">Метро</string>
     <string name="type.railway.station.subway.izmir">Метро</string>
@@ -1897,6 +1899,7 @@
     <string name="type.railway.subway_entrance.hamburg">Вход в метро</string>
     <string name="type.railway.subway_entrance.helsinki">Вход в метро</string>
     <string name="type.railway.subway_entrance.hiroshima">Вход в метро</string>
+    <string name="type.railway.subway_entrance.hongkong">Вход в метро</string>
     <string name="type.railway.subway_entrance.isfahan">Вход в метро</string>
     <string name="type.railway.subway_entrance.istanbul">Вход в метро</string>
     <string name="type.railway.subway_entrance.izmir">Вход в метро</string>

@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Пожертвуйте, щоб разом створювати найкращі мапи!";
 
+"already_donated" = "Вже пожертвувано";
+
+"remind_me_later" = "Нагадати пізніше";
+
+"support_organic_maps" = "Підтримати Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Копірайт";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Оператор: %@";
 
+"editor_category_unsuitable_title" = "Не можете знайти відповідну категорію?";
+
+"editor_category_unsuitable_text" = "Organic Maps дозволяють додавати до мапи лише прості типи об'єктів, тобто без міст, доріг, озер та контурів будівель. Будь ласка, додайте такі категорії на сайті <a href=\"https://www.openstreetmap.org/\">OpenStreetMap.org</a>. Ми також рекомендуємо ознайомитися із <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing/\">детальними інструкціями та іншими додатками для редагування карти</a>.";
+
 "downloader_no_downloaded_maps_title" = "Ви не маєте завантажених мап";
 
 "downloader_no_downloaded_maps_message" = "Завантажте необхідні мапи, щоб знаходити місця та користуватися навігацією без iнтернету.";
@@ -794,6 +804,8 @@
 "hour" = "год";
 
 "minute" = "хв";
+
+"day" = "д";
 
 "placepage_more_button" = "Ще";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Метро";
 
+"type.railway.station.subway.hongkong" = "Метро";
+
 "type.railway.station.subway.isfahan" = "Метро";
 
 "type.railway.station.subway.istanbul" = "Метро";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Вхід до метро";
 
 "type.railway.subway_entrance.hiroshima" = "Вхід до метро";
+
+"type.railway.subway_entrance.hongkong" = "Вхід до метро";
 
 "type.railway.subway_entrance.isfahan" = "Вхід до метро";
 

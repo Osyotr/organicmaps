@@ -541,6 +541,7 @@
     <string name="miles_per_hour">mph</string>
     <string name="hour">h</string>
     <string name="minute">min</string>
+    <string name="day">d</string>
     <string name="placepage_more_button">Mehr</string>
     <!-- A referral link on the place page for some hotels -->
     <string name="more_on_kayak">Fotos, bewertungen, buchung</string>
@@ -1736,6 +1737,7 @@
     <string name="type.railway.station.subway.hamburg">U-Bahn-Station</string>
     <string name="type.railway.station.subway.helsinki">U-Bahn-Station</string>
     <string name="type.railway.station.subway.hiroshima">U-Bahn-Station</string>
+    <string name="type.railway.station.subway.hongkong">U-Bahn-Station</string>
     <string name="type.railway.station.subway.isfahan">U-Bahn-Station</string>
     <string name="type.railway.station.subway.istanbul">U-Bahn-Station</string>
     <string name="type.railway.station.subway.izmir">U-Bahn-Station</string>
@@ -1851,6 +1853,7 @@
     <string name="type.railway.subway_entrance.hamburg">U-Bahn-Eingang</string>
     <string name="type.railway.subway_entrance.helsinki">U-Bahn-Eingang</string>
     <string name="type.railway.subway_entrance.hiroshima">U-Bahn-Eingang</string>
+    <string name="type.railway.subway_entrance.hongkong">U-Bahn-Eingang</string>
     <string name="type.railway.subway_entrance.isfahan">U-Bahn-Eingang</string>
     <string name="type.railway.subway_entrance.istanbul">U-Bahn-Eingang</string>
     <string name="type.railway.subway_entrance.izmir">U-Bahn-Eingang</string>

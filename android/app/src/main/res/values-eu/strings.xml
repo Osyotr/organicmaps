@@ -540,6 +540,7 @@
     <string name="miles_per_hour">mph</string>
     <string name="hour">h</string>
     <string name="minute">min</string>
+    <string name="day">e</string>
     <string name="placepage_more_button">Gehiago</string>
     <!-- A referral link on the place page for some hotels -->
     <string name="more_on_kayak">Argazkiak, iritziak, erreserba</string>
@@ -1665,6 +1666,7 @@
     <string name="type.railway.station.subway.hamburg">Metroa</string>
     <string name="type.railway.station.subway.helsinki">Metroa</string>
     <string name="type.railway.station.subway.hiroshima">Metroa</string>
+    <string name="type.railway.station.subway.hongkong">Metroa</string>
     <string name="type.railway.station.subway.isfahan">Metroa</string>
     <string name="type.railway.station.subway.istanbul">Metroa</string>
     <string name="type.railway.station.subway.izmir">Metroa</string>
@@ -1777,6 +1779,7 @@
     <string name="type.railway.subway_entrance.hamburg">Metroko sarrera</string>
     <string name="type.railway.subway_entrance.helsinki">Metroko sarrera</string>
     <string name="type.railway.subway_entrance.hiroshima">Metroko sarrera</string>
+    <string name="type.railway.subway_entrance.hongkong">Metroko sarrera</string>
     <string name="type.railway.subway_entrance.isfahan">Metroko sarrera</string>
     <string name="type.railway.subway_entrance.istanbul">Metroko sarrera</string>
     <string name="type.railway.subway_entrance.izmir">Metroko sarrera</string>

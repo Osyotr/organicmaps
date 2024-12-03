@@ -59,6 +59,12 @@ public final class Config
 
   private Config() {}
 
+  @SuppressWarnings("ConstantConditions") // BuildConfig
+  private static boolean isFdroid()
+  {
+    return BuildConfig.FLAVOR.equals("fdroid");
+  }
+
   private static int getInt(String key, int def)
   {
     return nativeGetInt(key, def);
@@ -188,7 +194,14 @@ public final class Config
 
   public static boolean useGoogleServices()
   {
-    return getBool(KEY_PREF_USE_GS, true);
+    // F-droid users expect non-free networks to be disabled by default
+    // https://t.me/organicmaps/47334
+    // Additionally, in the µG play-services-location library which is used for
+    // F-droid builds, GMS api availability is stubbed and always returns true.
+    // https://github.com/microg/GmsCore/issues/2309
+    // For more details, see the discussion in
+    // https://github.com/organicmaps/organicmaps/pull/9575
+    return getBool(KEY_PREF_USE_GS, !isFdroid());
   }
 
   public static void setUseGoogleService(boolean use)
@@ -216,10 +229,9 @@ public final class Config
     setBool(KEY_MISC_KAYAK_ACCEPTED);
   }
 
-  @SuppressWarnings("ConstantConditions") // BuildConfig
   public static boolean isKayakReferralAllowed()
   {
-    return !BuildConfig.FLAVOR.equals("fdroid");
+    return !isFdroid();
   }
 
   public static boolean isLocationRequested()

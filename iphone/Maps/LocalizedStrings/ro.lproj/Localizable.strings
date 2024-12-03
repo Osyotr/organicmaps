@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Donează pentru a construi împreună cele mai bune hărți!";
 
+"already_donated" = "Deja donat";
+
+"remind_me_later" = "Amintește mai târziu";
+
+"support_organic_maps" = "Susține Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Drepturi de autor";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operator: %@";
 
+"editor_category_unsuitable_title" = "Nu găsiți o categorie potrivită?";
+
+"editor_category_unsuitable_text" = "Organic Maps permite adăugarea doar a unor categorii de puncte simple, ceea ce înseamnă că nu există orașe, drumuri, lacuri, contururi de clădiri, etc. Vă rugăm să adăugați astfel de categorii direct la <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Consultați <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">ghidul nostru</a> pentru instrucțiuni detaliate pas cu pas.";
+
 "downloader_no_downloaded_maps_title" = "Nu ai descărcat nicio hartă";
 
 "downloader_no_downloaded_maps_message" = "Descarcă hărți pentru a căuta un loc și a naviga fără conectare la internet.";
@@ -794,6 +804,8 @@
 "hour" = "h";
 
 "minute" = "min";
+
+"day" = "z";
 
 "placepage_more_button" = "Mai mult";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Metrou";
 
+"type.railway.station.subway.hongkong" = "Metrou";
+
 "type.railway.station.subway.isfahan" = "Metrou";
 
 "type.railway.station.subway.istanbul" = "Metrou";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Intrare în metro";
 
 "type.railway.subway_entrance.hiroshima" = "Intrare în metro";
+
+"type.railway.subway_entrance.hongkong" = "Intrare în metro";
 
 "type.railway.subway_entrance.isfahan" = "Intrare în metro";
 

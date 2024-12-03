@@ -84,11 +84,12 @@ def osName = System.properties['os.name'].toLowerCase()
 project.ext.appId = 'app.organicmaps'
 project.ext.appName = 'Organic Maps'
 
-java {
-  toolchain {
-    languageVersion.set(JavaLanguageVersion.of(17))
-  }
-}
+// I have Java 21 installed, but this doesn't work on MacOS.
+//java {
+//  toolchain {
+//    languageVersion.set(JavaLanguageVersion.of(17))
+//  }
+//}
 
 android {
   namespace 'app.organicmaps'
@@ -331,7 +332,7 @@ android {
 
   externalNativeBuild {
     cmake {
-      version '3.30.3+'
+      version '3.22.1+'
       buildStagingDirectory './nativeOutputs'
       path '../../CMakeLists.txt'
     }
@@ -367,6 +368,9 @@ dependencies {
   webImplementation 'com.google.android.gms:play-services-location:21.3.0'
   googleImplementation 'com.google.android.gms:play-services-location:21.3.0'
   huaweiImplementation 'com.google.android.gms:play-services-location:21.3.0'
+  // This is the microG project's re-implementation which is permissible on
+  // F-droid because it's Apache-2.0.
+  fdroidImplementation 'org.microg.gms:play-services-location:0.3.4.240913'
 
   // Google Firebase Services
   if (googleFirebaseServicesEnabled) {
@@ -449,7 +453,7 @@ task prepareGoogleReleaseListing {
 
 play {
   enabled.set(false)
-  track.set('alpha')
+  track.set('production')
   defaultToAppBundles.set(true)
   releaseStatus.set(ReleaseStatus.IN_PROGRESS)
   serviceAccountCredentials.set(file('google-play.json'))

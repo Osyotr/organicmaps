@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Падтрымайць, каб разам ствараць лепшыя карты!";
 
+"already_donated" = "Ужо ахвяравана";
+
+"remind_me_later" = "Нагадаць пазней";
+
+"support_organic_maps" = "Падтрымаць Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Капірайт";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Aператар: %@";
 
+"editor_category_unsuitable_title" = "Няма прыдатнай катэгорыі?";
+
+"editor_category_unsuitable_text" = "Organic Maps дазваляе дадаваць на мапу толькі простыя тыпы аб'ектаў, гэта значыць без гарадаў, дарог, азёр і будынкаў. Калі ласка, дадайце такія катэгорыі на сайце <a href=\"https://www.openstreetmap.org/\">OpenStreetMap.org </a>. Мы таксама рэкамендуем азнаёміцца ​​з <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing/\">падрабязнымі інструкцыямі і іншымі прыкладаннямі для рэдагавання мапы</a>.";
+
 "downloader_no_downloaded_maps_title" = "Вы не спампавалі ніводнай мапы";
 
 "downloader_no_downloaded_maps_message" = "Спампуйце мапы, каб шукаць месцы і карыстацца навігацыяй без інтэрнэту.";
@@ -794,6 +804,8 @@
 "hour" = "г";
 
 "minute" = "хв";
+
+"day" = "д";
 
 "placepage_more_button" = "Яшчэ";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Subway Station";
 
+"type.railway.station.subway.hongkong" = "Subway Station";
+
 "type.railway.station.subway.isfahan" = "Subway Station";
 
 "type.railway.station.subway.istanbul" = "Subway Station";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Subway Entrance";
 
 "type.railway.subway_entrance.hiroshima" = "Subway Entrance";
+
+"type.railway.subway_entrance.hongkong" = "Subway Entrance";
 
 "type.railway.subway_entrance.isfahan" = "Subway Entrance";
 

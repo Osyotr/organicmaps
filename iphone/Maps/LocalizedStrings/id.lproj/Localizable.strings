@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Donasi untuk membangun peta terbaik bersama-sama!";
 
+"already_donated" = "Sudah disumbang";
+
+"remind_me_later" = "Ingatkan nanti";
+
+"support_organic_maps" = "Mendukung Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Hak cipta";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operator: %@";
 
+"editor_category_unsuitable_title" = "Tidak dapat menemukan kategori yang sesuai?";
+
+"editor_category_unsuitable_text" = "Organic Maps hanya memungkinkan untuk menambahkan kategori titik sederhana, yang berarti tidak ada kota, jalan, danau, garis besar bangunan, dll. Silahkan tambahkan kategori tersebut secara langsung ke <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Lihat <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">panduan</a> kami untuk petunjuk langkah demi langkah yang terperinci.";
+
 "downloader_no_downloaded_maps_title" = "Tidak ada peta apa pun yang diunduh";
 
 "downloader_no_downloaded_maps_message" = "Unduh peta untuk menemukan lokasi dan bernavigasi secara offline.";
@@ -794,6 +804,8 @@
 "hour" = "j";
 
 "minute" = "mnt";
+
+"day" = "hr";
 
 "placepage_more_button" = "Lainnya";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Stasiun bawah tanah";
 
+"type.railway.station.subway.hongkong" = "Stasiun bawah tanah";
+
 "type.railway.station.subway.isfahan" = "Stasiun bawah tanah";
 
 "type.railway.station.subway.istanbul" = "Stasiun bawah tanah";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Pintu masuk kereta bawah tanah";
 
 "type.railway.subway_entrance.hiroshima" = "Pintu masuk kereta bawah tanah";
+
+"type.railway.subway_entrance.hongkong" = "Pintu masuk kereta bawah tanah";
 
 "type.railway.subway_entrance.isfahan" = "Pintu masuk kereta bawah tanah";
 

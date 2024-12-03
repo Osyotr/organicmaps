@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Lahjoittakaa, jotta voimme rakentaa parhaita karttoja yhdessä!";
 
+"already_donated" = "Jo lahjoitettu";
+
+"remind_me_later" = "Muistuta myöhemmin";
+
+"support_organic_maps" = "Tukea Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Tekijänoikeudet";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operaattori: %@";
 
+"editor_category_unsuitable_title" = "Etkö löydä sopivaa luokkaa?";
+
+"editor_category_unsuitable_text" = "Organic Maps mahdollistaa vain yksinkertaisten pisteluokkien lisäämisen, eli ei kaupunkeja, teitä, järviä, rakennusten ääriviivoja jne. Lisää tällaiset luokat suoraan <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Tarkista <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">oppaastamme</a> yksityiskohtaiset ohjeet vaihe vaiheelta.";
+
 "downloader_no_downloaded_maps_title" = "Et ole ladannut yhtään karttaa";
 
 "downloader_no_downloaded_maps_message" = "Lataa karttoja löytääksesi paikkoja ja navigoidaksesi offline-tilassa.";
@@ -794,6 +804,8 @@
 "hour" = "t";
 
 "minute" = "min";
+
+"day" = "pv";
 
 "placepage_more_button" = "Lisää";
 
@@ -1697,7 +1709,7 @@
 "type.amenity.shelter.public_transport" = "Katos";
 
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
-"type.amenity.shelter.basic_hut" = "Bivouac-mökki";
+"type.amenity.shelter.basic_hut" = "Kota";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Lean-to Shelter";
@@ -2206,9 +2218,9 @@
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "Erittäin vaikea tai erottamaton jälki";
 
-"type.highway.path.bicycle" = "Pyörä- ja jalkatie";
+"type.highway.path.bicycle" = "Kevyen liikenteen väylä";
 
-"type.highway.footway.bicycle" = "Pyörä- ja jalkatie";
+"type.highway.footway.bicycle" = "Kevyen liikenteen väylä";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Silta";
@@ -2424,7 +2436,7 @@
 
 "type.historic.castle.castrum" = "Roomalaisleiri";
 
-"type.historic.castle.defensive" = "Linnake";
+"type.historic.castle.defensive" = "Linnoitus";
 
 "type.historic.castle.fortified_church" = "Linnoitettu kirkko";
 
@@ -2731,7 +2743,7 @@
 "type.natural" = "Luonto";
 
 /* A rocky land cover. */
-"type.natural.bare_rock" = "Paljas kallio";
+"type.natural.bare_rock" = "Avokallio";
 
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Pebbles";
@@ -2743,7 +2755,7 @@
 
 "type.natural.beach" = "Ranta";
 
-"type.natural.beach.sand" = "Hiekkainen ranta";
+"type.natural.beach.sand" = "Hiekkaranta";
 
 "type.natural.beach.gravel" = "Soraranta";
 
@@ -2811,7 +2823,7 @@
 
 "type.natural.water" = "Vesimuodostuma";
 
-"type.natural.wetland" = "Suoperäinen seutu";
+"type.natural.wetland" = "Soistuva maa";
 
 "type.natural.wetland.bog" = "Suo";
 
@@ -2825,7 +2837,7 @@
 
 "type.office.estate_agent" = "Kiinteistönvälittäjä";
 
-"type.office.government" = "Viranomaistoimito";
+"type.office.government" = "Viranomaisen toimisto";
 
 "type.office.insurance" = "Vakuutuslaitos";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Metro";
 
+"type.railway.station.subway.hongkong" = "Metro";
+
 "type.railway.station.subway.isfahan" = "Metro";
 
 "type.railway.station.subway.istanbul" = "Metro";
@@ -3372,6 +3386,8 @@
 
 "type.railway.subway_entrance.hiroshima" = "Metron sisäänkäynti";
 
+"type.railway.subway_entrance.hongkong" = "Metron sisäänkäynti";
+
 "type.railway.subway_entrance.isfahan" = "Metron sisäänkäynti";
 
 "type.railway.subway_entrance.istanbul" = "Metron sisäänkäynti";
@@ -3528,7 +3544,7 @@
 
 "type.route" = "Route";
 
-"type.route.ferry" = "Ferry";
+"type.route.ferry" = "Lauttareitti";
 
 "type.route.shuttle_train" = "route-shuttle_train";
 
@@ -3882,7 +3898,7 @@
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "Lomamökki";
 
-"type.tourism.gallery" = "Nähtävyydet";
+"type.tourism.gallery" = "Taidegalleria";
 
 "type.tourism.guest_house" = "Majatalo";
 
@@ -3892,11 +3908,11 @@
 
 "type.tourism.information" = "Turisti-informaatio";
 
-"type.tourism.information.board" = "Informaatio";
+"type.tourism.information.board" = "Opastaulu";
 
 "type.tourism.information.guidepost" = "Tienviitta";
 
-"type.tourism.information.map" = "Turistikartta";
+"type.tourism.information.map" = "Opaskartta";
 
 "type.tourism.information.office" = "Turistitoimisto";
 

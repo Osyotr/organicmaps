@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Adományozz, hogy együtt építsük a legjobb térképeket!";
 
+"already_donated" = "Már adományozva";
+
+"remind_me_later" = "Emlékeztessen később";
+
+"support_organic_maps" = "Organic Maps támogatása";
+
 /* Button in the main Help dialog */
 "copyright" = "Szerzői jog";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Üzemeltető: %@";
 
+"editor_category_unsuitable_title" = "Nem találja a megfelelő kategóriát?";
+
+"editor_category_unsuitable_text" = "Az Organic Maps csak egyszerű pontkategóriák hozzáadását teszi lehetővé, azaz nem tartalmaz városokat, utakat, tavakat, épületek körvonalait stb. Kérjük, hogy az ilyen kategóriákat közvetlenül a <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> oldalon adja hozzá. A részletes, lépésről lépésre történő útmutatásért tekintse meg <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">útmutatónkat</a>.";
+
 "downloader_no_downloaded_maps_title" = "Még nem töltött le térképet";
 
 "downloader_no_downloaded_maps_message" = "Töltse le a szükséges térképeket, hogy megtalálja a helyet és internet nélkül is navigálhasson.";
@@ -794,6 +804,8 @@
 "hour" = "ó";
 
 "minute" = "p";
+
+"day" = "nap";
 
 "placepage_more_button" = "Még";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Metrómegálló";
 
+"type.railway.station.subway.hongkong" = "Metrómegálló";
+
 "type.railway.station.subway.isfahan" = "Metrómegálló";
 
 "type.railway.station.subway.istanbul" = "Metrómegálló";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Metróbejárat";
 
 "type.railway.subway_entrance.hiroshima" = "Metróbejárat";
+
+"type.railway.subway_entrance.hongkong" = "Metróbejárat";
 
 "type.railway.subway_entrance.isfahan" = "Metróbejárat";
 

@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "บริจาคเพื่อสร้างแผนที่ที่ดีที่สุดด้วยกัน!";
 
+"already_donated" = "บริจาคแล้ว";
+
+"remind_me_later" = "เตือนภายหลัง";
+
+"support_organic_maps" = "สนับสนุน Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "ลิขสิทธิ์";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "ตัวดำเนินการ: %@";
 
+"editor_category_unsuitable_title" = "ไม่พบหมวดหมู่ที่เหมาะสมใช่ไหม?";
+
+"editor_category_unsuitable_text" = "แผนที่ทั่วไปอนุญาตให้เพิ่มหมวดหมู่จุดธรรมดาเท่านั้น ซึ่งหมายความว่าไม่มีเมือง ถนน ทะเลสาบ โครงร่างอาคาร ฯลฯ โปรดเพิ่มหมวดหมู่ดังกล่าวลงใน <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. ดู<a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">คำแนะนำ</a> ของเราเพื่อดูคำแนะนำโดยละเอียดทีละขั้นตอน";
+
 "downloader_no_downloaded_maps_title" = "คุณยังไม่ได้ดาวน์โหลดแผนที่";
 
 "downloader_no_downloaded_maps_message" = "ดาวน์โหลดแผนที่เพื่อค้นหาสถานที่ และนำทางแบบออฟไลน์";
@@ -794,6 +804,8 @@
 "hour" = "ชม.";
 
 "minute" = "น.";
+
+"day" = "วัน";
 
 "placepage_more_button" = "เพิ่มเติม";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "รถไฟ";
 
+"type.railway.station.subway.hongkong" = "รถไฟ";
+
 "type.railway.station.subway.isfahan" = "รถไฟ";
 
 "type.railway.station.subway.istanbul" = "รถไฟ";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "ทางเข้ารถไฟใต้ดิน";
 
 "type.railway.subway_entrance.hiroshima" = "ทางเข้ารถไฟใต้ดิน";
+
+"type.railway.subway_entrance.hongkong" = "ทางเข้ารถไฟใต้ดิน";
 
 "type.railway.subway_entrance.isfahan" = "ทางเข้ารถไฟใต้ดิน";
 

@@ -526,6 +526,7 @@
     <string name="miles_per_hour">mph</string>
     <string name="hour">ó</string>
     <string name="minute">p</string>
+    <string name="day">nap</string>
     <string name="placepage_more_button">Még</string>
     <!-- A referral link on the place page for some hotels -->
     <string name="more_on_kayak">Fényképek, vélemények, foglalás</string>
@@ -1581,6 +1582,7 @@
     <string name="type.railway.station.subway.hamburg">Metrómegálló</string>
     <string name="type.railway.station.subway.helsinki">Metrómegálló</string>
     <string name="type.railway.station.subway.hiroshima">Metrómegálló</string>
+    <string name="type.railway.station.subway.hongkong">Metrómegálló</string>
     <string name="type.railway.station.subway.isfahan">Metrómegálló</string>
     <string name="type.railway.station.subway.istanbul">Metrómegálló</string>
     <string name="type.railway.station.subway.izmir">Metrómegálló</string>
@@ -1693,6 +1695,7 @@
     <string name="type.railway.subway_entrance.hamburg">Metróbejárat</string>
     <string name="type.railway.subway_entrance.helsinki">Metróbejárat</string>
     <string name="type.railway.subway_entrance.hiroshima">Metróbejárat</string>
+    <string name="type.railway.subway_entrance.hongkong">Metróbejárat</string>
     <string name="type.railway.subway_entrance.isfahan">Metróbejárat</string>
     <string name="type.railway.subway_entrance.istanbul">Metróbejárat</string>
     <string name="type.railway.subway_entrance.izmir">Metróbejárat</string>

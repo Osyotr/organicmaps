@@ -88,23 +88,32 @@ Framework::FixedPosition::FixedPosition()
 
 namespace
 {
-char const kMapStyleKey[] = "MapStyleKeyV1";
-char const kAllow3dKey[] = "Allow3d";
-char const kAllow3dBuildingsKey[] = "Buildings3d";
-char const kAllowAutoZoom[] = "AutoZoom";
-char const kTrafficEnabledKey[] = "TrafficEnabled";
-char const kTransitSchemeEnabledKey[] = "TransitSchemeEnabled";
-char const kIsolinesEnabledKey[] = "IsolinesEnabled";
-char const kOutdoorsEnabledKey[] = "OutdoorsEnabled";
-char const kTrafficSimplifiedColorsKey[] = "TrafficSimplifiedColors";
-char const kLargeFontsSize[] = "LargeFontsSize";
-char const kTranslitMode[] = "TransliterationMode";
-char const kPreferredGraphicsAPI[] = "PreferredGraphicsAPI";
-char const kShowDebugInfo[] = "DebugInfo";
+std::string_view constexpr kMapStyleKey = "MapStyleKeyV1";
+std::string_view constexpr kAllow3dKey = "Allow3d";
+std::string_view constexpr kAllow3dBuildingsKey = "Buildings3d";
+std::string_view constexpr kAllowAutoZoom = "AutoZoom";
+std::string_view constexpr kTrafficEnabledKey = "TrafficEnabled";
+std::string_view constexpr kTransitSchemeEnabledKey = "TransitSchemeEnabled";
+std::string_view constexpr kIsolinesEnabledKey = "IsolinesEnabled";
+std::string_view constexpr kOutdoorsEnabledKey = "OutdoorsEnabled";
+std::string_view constexpr kTrafficSimplifiedColorsKey = "TrafficSimplifiedColors";
+std::string_view constexpr kLargeFontsSize = "LargeFontsSize";
+std::string_view constexpr kTranslitMode = "TransliterationMode";
+std::string_view constexpr kPreferredGraphicsAPI = "PreferredGraphicsAPI";
+std::string_view constexpr kShowDebugInfo = "DebugInfo";
+std::string_view constexpr kScreenViewport = "ScreenClipRect";
+std::string_view constexpr kPlacePageProductsPopupCloseTime = "PlacePageProductsPopupCloseTime";
+std::string_view constexpr kPlacePageProductsPopupCloseReason = "PlacePageProductsPopupCloseReason";
+std::string_view constexpr kPlacePageSelectedProduct = "PlacePageSelectedProduct";
+
+std::string_view constexpr kProductsPopupCloseReasonCloseStr = "close";
+std::string_view constexpr kProductsPopupCloseReasonRemindLaterStr = "remind_later";
+std::string_view constexpr kProductsPopupCloseReasonAlreadyDonatedStr =  "already_donated";
+std::string_view constexpr kProductsPopupCloseReasonSelectProductStr = "select_product";
 
 auto constexpr kLargeFontsScaleFactor = 1.6;
 size_t constexpr kMaxTrafficCacheSizeBytes = 64 /* Mb */ * 1024 * 1024;
-auto constexpr kBuildingCentroidThreshold = 10.0;
+
 
 // TODO!
 // To adjust GpsTrackFilter was added secret command "?gpstrackaccuracy:xxx;"
@@ -958,13 +967,13 @@ void Framework::SaveViewport()
   {
     rect = m_currentModelView.GlobalRect();
   }
-  settings::Set("ScreenClipRect", rect);
+  settings::Set(kScreenViewport, rect);
 }
 
 void Framework::LoadViewport()
 {
   m2::AnyRectD rect;
-  if (settings::Get("ScreenClipRect", rect) && df::GetWorldRect().IsRectInside(rect.GetGlobalRect()))
+  if (settings::Get(kScreenViewport, rect) && df::GetWorldRect().IsRectInside(rect.GetGlobalRect()))
   {
     if (m_drapeEngine != nullptr)
       m_drapeEngine->SetModelViewAnyRect(rect, false /* isAnim */, false /* useVisibleViewport */);
@@ -2376,6 +2385,7 @@ string Framework::GenerateApiBackUrl(ApiMarkPoint const & point) const
   return res;
 }
 
+/*
 bool Framework::IsDataVersionUpdated()
 {
   int64_t storedVersion;
@@ -2391,6 +2401,7 @@ void Framework::UpdateSavedDataVersion()
 {
   settings::Set("DataVersion", m_storage.GetCurrentDataVersion());
 }
+*/
 
 int64_t Framework::GetCurrentDataVersion() const { return m_storage.GetCurrentDataVersion(); }
 
@@ -3309,4 +3320,98 @@ void Framework::OnPowerSchemeChanged(power_management::Scheme const actualScheme
 {
   if (actualScheme == power_management::Scheme::EconomyMaximum && GetTrafficManager().IsEnabled())
     GetTrafficManager().SetEnabled(false);
+}
+
+bool Framework::ShouldShowProducts() const
+{
+  auto const connectionStatus = Platform::ConnectionStatus();
+  if (connectionStatus == Platform::EConnectionType::CONNECTION_NONE)
+    return false;
+
+  std::string donateUrl;
+  if (!settings::Get(settings::kDonateUrl, donateUrl)) // donation is disabled
+    return false;
+
+  if (!m_usageStats.IsLoyalUser())
+    return false;
+
+  if (!storage::IsPointCoveredByDownloadedMaps(GetCurrentPlacePageInfo().GetMercator(), m_storage, *m_infoGetter))
+    return false;
+
+  uint64_t popupCloseTime;
+  std::string productCloseReason;
+  if (!settings::Get(kPlacePageProductsPopupCloseTime, popupCloseTime) ||
+      !settings::Get(kPlacePageProductsPopupCloseReason, productCloseReason))
+    return true; // The popup was never closed.
+
+  auto const now = base::SecondsSinceEpoch();
+  auto const timeout = GetTimeoutForReason(FromString(productCloseReason));
+  bool const timeoutExpired = popupCloseTime + timeout < now;
+  if (timeoutExpired)
+    return true;
+
+  return false;
+}
+
+std::optional<products::ProductsConfig> Framework::GetProductsConfiguration() const
+{
+  if (!ShouldShowProducts())
+    return nullopt;
+  return products::GetProductsConfiguration();
+}
+
+void Framework::DidCloseProductsPopup(ProductsPopupCloseReason reason) const
+{
+  settings::Set(kPlacePageProductsPopupCloseTime, base::SecondsSinceEpoch());
+  settings::Set(kPlacePageProductsPopupCloseReason, std::string(ToString(reason)));
+}
+
+void Framework::DidSelectProduct(products::ProductsConfig::Product const & product) const
+{
+  settings::Set(kPlacePageSelectedProduct, product.GetTitle());
+}
+
+uint32_t Framework::GetTimeoutForReason(ProductsPopupCloseReason reason) const
+{
+  #ifdef DEBUG
+  uint32_t constexpr kPopupCloseTimeout = 10;
+  uint32_t constexpr kProductSelectTimeout = 20;
+  uint32_t constexpr kRemindMeLaterTimeout = 5;
+  #else
+  uint32_t constexpr kPopupCloseTimeout = 60 * 60 * 24  * 30; // 30 days
+  uint32_t constexpr kProductSelectTimeout = 60 * 60 * 24 * 180; // 180 days
+  uint32_t constexpr kRemindMeLaterTimeout = 60 * 60 * 24 * 3; // 3 days
+  #endif
+  switch (reason)
+  {
+    case ProductsPopupCloseReason::Close: return kPopupCloseTimeout;
+    case ProductsPopupCloseReason::RemindLater: return kRemindMeLaterTimeout;
+    case ProductsPopupCloseReason::AlreadyDonated: return kProductSelectTimeout;
+    case ProductsPopupCloseReason::SelectProduct: return kProductSelectTimeout;
+  }
+  ASSERT(false, ("Unknown reason"));
+  return kPopupCloseTimeout;
+}
+
+std::string_view Framework::ToString(ProductsPopupCloseReason reason) const
+{
+  switch (reason)
+  {
+    case ProductsPopupCloseReason::Close: return kProductsPopupCloseReasonCloseStr;
+    case ProductsPopupCloseReason::RemindLater: return kProductsPopupCloseReasonRemindLaterStr;
+    case ProductsPopupCloseReason::AlreadyDonated: return kProductsPopupCloseReasonAlreadyDonatedStr;
+    case ProductsPopupCloseReason::SelectProduct: return kProductsPopupCloseReasonSelectProductStr;
+  }
+  ASSERT(false, ("Unknown reason"));
+  return kProductsPopupCloseReasonCloseStr;
+}
+
+Framework::ProductsPopupCloseReason Framework::FromString(std::string const & str) const
+{
+  if (str == kProductsPopupCloseReasonCloseStr) return ProductsPopupCloseReason::Close;
+  if (str == kProductsPopupCloseReasonRemindLaterStr) return ProductsPopupCloseReason::RemindLater;
+  if (str == kProductsPopupCloseReasonAlreadyDonatedStr) return ProductsPopupCloseReason::AlreadyDonated;
+  if (str == kProductsPopupCloseReasonSelectProductStr) return ProductsPopupCloseReason::SelectProduct;
+  ASSERT(false, ("Incorrect reason string:", str));
+  return ProductsPopupCloseReason::Close;
 }

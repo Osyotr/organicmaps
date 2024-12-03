@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Annetage, et ehitada koos parimaid kaarte!";
 
+"already_donated" = "Juba annetatud";
+
+"remind_me_later" = "Meenuta hiljem";
+
+"support_organic_maps" = "Toetada Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Autoriõigused";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operaator: %@";
 
+"editor_category_unsuitable_title" = "Ei leia sobivat kategooriat?";
+
+"editor_category_unsuitable_text" = "Organic Maps võimaldab lisada ainult lihtsaid punktikategooriaid, see tähendab, et ei mingeid linnu, teid, järvi, hoonete piirjooni jne. Palun lisage sellised kategooriad otse <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Vaadake meie <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">juhendit</a> üksikasjalike samm-sammuliste juhiste saamiseks.";
+
 "downloader_no_downloaded_maps_title" = "Sa ei ole kaarte alla laadinud";
 
 "downloader_no_downloaded_maps_message" = "Lae alla kaardid asukoha otsimiseks ja võrguühenduseta navigeerimise kasutamiseks.";
@@ -794,6 +804,8 @@
 "hour" = "h";
 
 "minute" = "min";
+
+"day" = "p";
 
 "placepage_more_button" = "Veel";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Metroo";
 
+"type.railway.station.subway.hongkong" = "Metroo";
+
 "type.railway.station.subway.isfahan" = "Metroo";
 
 "type.railway.station.subway.istanbul" = "Metroo";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Metroo sissepääs";
 
 "type.railway.subway_entrance.hiroshima" = "Metroo sissepääs";
+
+"type.railway.subway_entrance.hongkong" = "Metroo sissepääs";
 
 "type.railway.subway_entrance.isfahan" = "Metroo sissepääs";
 

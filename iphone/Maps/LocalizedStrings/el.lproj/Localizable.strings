@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Κάντε δωρεά για να φτιάξουμε μαζί τους καλύτερους χάρτες!";
 
+"already_donated" = "Ήδη δωρεά";
+
+"remind_me_later" = "Υπενθύμισε αργότερα";
+
+"support_organic_maps" = "Υποστήριξε το Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Πνευματικά δικαιώματα";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Χειριστής: %@";
 
+"editor_category_unsuitable_title" = "Δεν μπορείτε να βρείτε την κατάλληλη κατηγορία;";
+
+"editor_category_unsuitable_text" = "Οι Οργανικοί Χάρτες επιτρέπουν την προσθήκη απλών κατηγοριών σημείων μόνο, δηλαδή όχι πόλεων, δρόμων, λιμνών, περιγραμμάτων κτιρίων κ.λπ. Παρακαλούμε προσθέστε τέτοιες κατηγορίες απευθείας στο <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Ελέγξτε τον <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">οδηγό μας</a> για λεπτομερείς οδηγίες βήμα προς βήμα.";
+
 "downloader_no_downloaded_maps_title" = "Δεν έχετε κατεβάσει χάρτες";
 
 "downloader_no_downloaded_maps_message" = "Κατεβάστε χάρτες για να αναζητήσετε μια τοποθεσία και να χρησιμοποιήσετε την πλοήγησης χωρίς σύνδεση.";
@@ -794,6 +804,8 @@
 "hour" = "h";
 
 "minute" = "min";
+
+"day" = "d";
 
 "placepage_more_button" = "Περισσότερα";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Μετρό";
 
+"type.railway.station.subway.hongkong" = "Μετρό";
+
 "type.railway.station.subway.isfahan" = "Μετρό";
 
 "type.railway.station.subway.istanbul" = "Μετρό";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Είσοδος μετρό";
 
 "type.railway.subway_entrance.hiroshima" = "Είσοδος μετρό";
+
+"type.railway.subway_entrance.hongkong" = "Είσοδος μετρό";
 
 "type.railway.subway_entrance.isfahan" = "Είσοδος μετρό";
 

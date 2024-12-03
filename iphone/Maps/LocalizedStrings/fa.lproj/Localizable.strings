@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "کمک مالی کنید تا بهترین نقشه ها را با هم بسازید!";
 
+"already_donated" = "قبلاً اهدا شده";
+
+"remind_me_later" = "بعداً یادآوری کن";
+
+"support_organic_maps" = "پشتیبانی از Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "حق نشر و کپی رایت";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "اپراتور: %@";
 
+"editor_category_unsuitable_title" = "آیا نمی توانید یک دسته بندی مناسب پیدا کنید؟";
+
+"editor_category_unsuitable_text" = "Organic Maps اجازه میu200cدهد فقط دستهu200cهای نقطهu200cای ساده را اضافه کند، یعنی هیچ شهر، جاده، دریاچه، طرح کلی ساختمان و غیره وجود ندارد. لطفاً این دستهu200cها را مستقیماً به <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> اضافه کنید. برای دستورالعملu200cهای گام به گام، <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">راهنمای</a> ما را بررسی کنید.";
+
 "downloader_no_downloaded_maps_title" = "شما هیچ نقشه دانلود شده ای ندارید";
 
 "downloader_no_downloaded_maps_message" = "برای جست وجو یک مکان و استفاده از قابلیت ناوبری، نقشه‌ها را دانلود کنید.";
@@ -794,6 +804,8 @@
 "hour" = "ساعت";
 
 "minute" = "دقیقه";
+
+"day" = "روز";
 
 "placepage_more_button" = "بیشتر";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "حمل و نقل";
 
+"type.railway.station.subway.hongkong" = "حمل و نقل";
+
 "type.railway.station.subway.isfahan" = "حمل و نقل";
 
 "type.railway.station.subway.istanbul" = "حمل و نقل";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "ورودی مترو";
 
 "type.railway.subway_entrance.hiroshima" = "ورودی مترو";
+
+"type.railway.subway_entrance.hongkong" = "ورودی مترو";
 
 "type.railway.subway_entrance.isfahan" = "ورودی مترو";
 

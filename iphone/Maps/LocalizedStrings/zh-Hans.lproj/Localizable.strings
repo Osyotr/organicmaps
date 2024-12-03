@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "捐助，以共同打造最好的地图！";
 
+"already_donated" = "已捐赠";
+
+"remind_me_later" = "稍后提醒";
+
+"support_organic_maps" = "支持 Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "版权";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "操作员: %@";
 
+"editor_category_unsuitable_title" = "找不到合适的类别？";
+
+"editor_category_unsuitable_text" = "Organic Maps 只允许添加简单的点类别，即无法添加城镇、道路、湖泊、建筑轮廓等类别。请直接向 <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> 添加此类类别。请查看我们的<a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">指南</a>，了解详细的步骤说明。";
+
 "downloader_no_downloaded_maps_title" = "您尚未下载任何地图";
 
 "downloader_no_downloaded_maps_message" = "下载地图来查找位置和离线浏览。";
@@ -794,6 +804,8 @@
 "hour" = "小时";
 
 "minute" = "分钟";
+
+"day" = "天";
 
 "placepage_more_button" = "更多";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "地铁车站";
 
+"type.railway.station.subway.hongkong" = "地铁车站";
+
 "type.railway.station.subway.isfahan" = "地铁车站";
 
 "type.railway.station.subway.istanbul" = "地铁车站";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "地铁出入口";
 
 "type.railway.subway_entrance.hiroshima" = "地铁出入口";
+
+"type.railway.subway_entrance.hongkong" = "地铁出入口";
 
 "type.railway.subway_entrance.isfahan" = "地铁出入口";
 

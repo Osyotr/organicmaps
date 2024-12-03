@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Doneer om samen de beste kaarten te bouwen!";
 
+"already_donated" = "Reeds gedoneerd";
+
+"remind_me_later" = "Herinner later";
+
+"support_organic_maps" = "Ondersteun Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Auteursrechten";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Exploitant: %@";
 
+"editor_category_unsuitable_title" = "Kun je geen geschikte categorie vinden?";
+
+"editor_category_unsuitable_text" = "Met Organic Maps kun je alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enzovoort. Voeg zulke categorieën direct toe aan <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Bekijk onze <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">gids</a> voor gedetailleerde stap voor stap instructies.";
+
 "downloader_no_downloaded_maps_title" = "U hebt geen kaarten gedownload";
 
 "downloader_no_downloaded_maps_message" = "Download kaarten om een locatie te zoeken en offline te navigeren.";
@@ -794,6 +804,8 @@
 "hour" = "u";
 
 "minute" = "min";
+
+"day" = "d";
 
 "placepage_more_button" = "Meer";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Metrostation";
 
+"type.railway.station.subway.hongkong" = "Metrostation";
+
 "type.railway.station.subway.isfahan" = "Metrostation";
 
 "type.railway.station.subway.istanbul" = "Metrostation";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Metro ingang";
 
 "type.railway.subway_entrance.hiroshima" = "Metro ingang";
+
+"type.railway.subway_entrance.hongkong" = "Metro ingang";
 
 "type.railway.subway_entrance.isfahan" = "Metro ingang";
 

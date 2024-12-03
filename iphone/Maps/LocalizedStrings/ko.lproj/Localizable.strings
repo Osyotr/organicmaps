@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "기부하여 최고의 지도를 함께 만들어 보세요!";
 
+"already_donated" = "기부완료";
+
+"remind_me_later" = "나중에 알림";
+
+"support_organic_maps" = "Organic Maps 지원하기";
+
 /* Button in the main Help dialog */
 "copyright" = "저작권";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "연산자: %@";
 
+"editor_category_unsuitable_title" = "적합한 카테고리를 찾을 수 없나요?";
+
+"editor_category_unsuitable_text" = "오가닉 지도에서는 단순한 포인트 카테고리만 추가할 수 있으므로 도시, 도로, 호수, 건물 윤곽선 등은 추가할 수 없습니다. 이러한 카테고리는 <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> 에 직접 추가하세요. 자세한 단계별 지침은 <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">가이드</a>를 참조하세요.";
+
 "downloader_no_downloaded_maps_title" = "지도를 다운로드하지 않았습니다";
 
 "downloader_no_downloaded_maps_message" = "오프라인으로 위치를 검색하려면 지도를 다운로드하세요.";
@@ -794,6 +804,8 @@
 "hour" = "t";
 
 "minute" = "min";
+
+"day" = "일";
 
 "placepage_more_button" = "자세히";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "지하철";
 
+"type.railway.station.subway.hongkong" = "지하철";
+
 "type.railway.station.subway.isfahan" = "지하철";
 
 "type.railway.station.subway.istanbul" = "지하철";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "지하철 입구";
 
 "type.railway.subway_entrance.hiroshima" = "지하철 입구";
+
+"type.railway.subway_entrance.hongkong" = "지하철 입구";
 
 "type.railway.subway_entrance.isfahan" = "지하철 입구";
 

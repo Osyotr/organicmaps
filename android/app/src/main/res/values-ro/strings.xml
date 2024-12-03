@@ -525,6 +525,7 @@
     <string name="miles_per_hour">mph</string>
     <string name="hour">h</string>
     <string name="minute">min</string>
+    <string name="day">z</string>
     <string name="placepage_more_button">Mai mult</string>
     <!-- A referral link on the place page for some hotels -->
     <string name="more_on_kayak">Fotografii, comentarii, rezervări</string>
@@ -1587,6 +1588,7 @@
     <string name="type.railway.station.subway.hamburg">Metrou</string>
     <string name="type.railway.station.subway.helsinki">Metrou</string>
     <string name="type.railway.station.subway.hiroshima">Metrou</string>
+    <string name="type.railway.station.subway.hongkong">Metrou</string>
     <string name="type.railway.station.subway.isfahan">Metrou</string>
     <string name="type.railway.station.subway.istanbul">Metrou</string>
     <string name="type.railway.station.subway.izmir">Metrou</string>
@@ -1699,6 +1701,7 @@
     <string name="type.railway.subway_entrance.hamburg">Intrare în metro</string>
     <string name="type.railway.subway_entrance.helsinki">Intrare în metro</string>
     <string name="type.railway.subway_entrance.hiroshima">Intrare în metro</string>
+    <string name="type.railway.subway_entrance.hongkong">Intrare în metro</string>
     <string name="type.railway.subway_entrance.isfahan">Intrare în metro</string>
     <string name="type.railway.subway_entrance.istanbul">Intrare în metro</string>
     <string name="type.railway.subway_entrance.izmir">Intrare în metro</string>

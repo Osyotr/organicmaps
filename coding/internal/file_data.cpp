@@ -15,11 +15,13 @@
 #include <cerrno>
 #include <cstring>
 #include <exception>
+#include <filesystem>
 #include <fstream>
 #include <vector>
 
 #ifdef OMIM_OS_WINDOWS
 #include <io.h>
+#include <windows.h>
 #else
 #include <unistd.h>  // ftruncate
 #endif
@@ -212,8 +214,9 @@ bool DeleteFileX(string const & fName)
 
 bool RenameFileX(string const & fOld, string const & fNew)
 {
-  int res = rename(fOld.c_str(), fNew.c_str());
-  return CheckFileOperationResult(res, fOld);
+  std::error_code ec;
+  std::filesystem::rename(fOld, fNew, ec);
+  return CheckFileOperationResult(ec.value(), fOld);
 }
 
 bool MoveFileX(string const & fOld, string const & fNew)
@@ -270,13 +273,13 @@ void AppendFileToFile(string const & fromFilename, string const & toFilename)
 
 bool CopyFileX(string const & fOld, string const & fNew)
 {
-  ifstream ifs;
-  ofstream ofs;
-  ifs.exceptions(ifstream::failbit | ifstream::badbit);
-  ofs.exceptions(ifstream::failbit | ifstream::badbit);
-
   try
   {
+    ifstream ifs;
+    ofstream ofs;
+    ifs.exceptions(ifstream::failbit | ifstream::badbit);
+    ofs.exceptions(ifstream::failbit | ifstream::badbit);
+
     ifs.open(fOld.c_str());
     ofs.open(fNew.c_str());
 

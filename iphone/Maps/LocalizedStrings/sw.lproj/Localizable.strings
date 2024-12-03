@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Changia ili kuunda ramani bora pamoja!";
 
+"already_donated" = "Tayari kutoa";
+
+"remind_me_later" = "Kumbusha baadaye";
+
+"support_organic_maps" = "Kuunga mkono Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Copyright";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Mwendeshaji: %@";
 
+"editor_category_unsuitable_title" = "Je, huwezi kupata aina inayofaa?";
+
+"editor_category_unsuitable_text" = "Ramani za Kikaboni huruhusu kuongeza kategoria rahisi pekee, hiyo inamaanisha hakuna miji, barabara, maziwa, muhtasari wa majengo, n.k. Tafadhali ongeza kategoria kama hizo moja kwa moja kwenye <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Angalia <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">mwongozo wetu</a> kwa maagizo ya kina ya hatua kwa hatua.";
+
 "downloader_no_downloaded_maps_title" = "You haven't downloaded any maps";
 
 "downloader_no_downloaded_maps_message" = "Download maps to search and navigate offline.";
@@ -794,6 +804,8 @@
 "hour" = "h";
 
 "minute" = "min";
+
+"day" = "d";
 
 "placepage_more_button" = "More";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Subway Station";
 
+"type.railway.station.subway.hongkong" = "Subway Station";
+
 "type.railway.station.subway.isfahan" = "Subway Station";
 
 "type.railway.station.subway.istanbul" = "Subway Station";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Lango la kuingilia stesheni ya reli";
 
 "type.railway.subway_entrance.hiroshima" = "Lango la kuingilia stesheni ya reli";
+
+"type.railway.subway_entrance.hongkong" = "Lango la kuingilia stesheni ya reli";
 
 "type.railway.subway_entrance.isfahan" = "Lango la kuingilia stesheni ya reli";
 

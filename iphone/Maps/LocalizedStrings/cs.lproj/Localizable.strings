@@ -300,6 +300,12 @@
 /* Tex label above the Donate button */
 "donate_description" = "Přispějte, abychom společně vytvořili ty nejlepší mapy!";
 
+"already_donated" = "Již darováno";
+
+"remind_me_later" = "Připomeň později";
+
+"support_organic_maps" = "Podpořit Organic Maps";
+
 /* Button in the main Help dialog */
 "copyright" = "Autorská práva";
 
@@ -747,6 +753,10 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operátor: %@";
 
+"editor_category_unsuitable_title" = "Nemůžete najít vhodnou kategorii?";
+
+"editor_category_unsuitable_text" = "Organické mapy umožňují přidávat pouze jednoduché kategorie bodů, tedy žádná města, silnice, jezera, obrysy budov atd. Takové kategorie prosím přidávejte přímo na <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Podrobné pokyny krok za krokem najdete v našem <a href=\"https://organicmaps.app/faq/editing/advanced-map-editing\">průvodci</a>.";
+
 "downloader_no_downloaded_maps_title" = "Nemáte stažené žádné mapy";
 
 "downloader_no_downloaded_maps_message" = "Stáhněte si mapy a hledejte cestu a její cíl, i když jste offline.";
@@ -794,6 +804,8 @@
 "hour" = "hod";
 
 "minute" = "min";
+
+"day" = "d";
 
 "placepage_more_button" = "Více";
 
@@ -3142,6 +3154,8 @@
 
 "type.railway.station.subway.hiroshima" = "Metro";
 
+"type.railway.station.subway.hongkong" = "Metro";
+
 "type.railway.station.subway.isfahan" = "Metro";
 
 "type.railway.station.subway.istanbul" = "Metro";
@@ -3371,6 +3385,8 @@
 "type.railway.subway_entrance.helsinki" = "Vchod do podchodu";
 
 "type.railway.subway_entrance.hiroshima" = "Vchod do podchodu";
+
+"type.railway.subway_entrance.hongkong" = "Vchod do podchodu";
 
 "type.railway.subway_entrance.isfahan" = "Vchod do podchodu";
 

@@ -8,6 +8,7 @@
 #include "base/string_utils.hpp"
 
 #include <algorithm>
+#include <filesystem>
 #include <thread>
 
 #include "private.h"
@@ -311,29 +312,9 @@ bool Platform::MkDirChecked(std::string const & dirName)
 // static
 bool Platform::MkDirRecursively(std::string const & dirName)
 {
-  CHECK(!dirName.empty(), ());
-
-  std::string::value_type const sep[] = { base::GetNativeSeparator(), 0};
-  std::string path = dirName.starts_with(sep[0]) ? sep : ".";
-  for (auto const & t : strings::Tokenize(dirName, sep))
-  {
-    path = base::JoinPath(path, std::string{t});
-    if (!IsFileExistsByFullPath(path))
-    {
-      switch (MkDir(path))
-      {
-      case ERR_OK: break;
-      case ERR_FILE_ALREADY_EXISTS:
-      {
-        if (!IsDirectory(path))
-          return false;
-        break;
-      }
-      default: return false;
-      }
-    }
-  }
-
+  std::error_code ec;
+  if (!std::filesystem::create_directories(dirName, ec))
+    return std::filesystem::exists(dirName);
   return true;
 }
 

@@ -12,6 +12,8 @@
 #include <mutex>
 #include <sstream>
 
+#include <windows.h>
+
 namespace base
 {
 namespace
@@ -79,6 +81,7 @@ void LogMessageDefault(LogLevel level, SrcPoint const & srcPoint, std::string co
   logger.WriteLog(out, srcPoint, msg);
 
   std::cerr << out.str();
+  OutputDebugStringA(out.str().c_str());
 
   CHECK_LESS(level, g_LogAbortLevel, ("Abort. Log level is too serious", level));
 }

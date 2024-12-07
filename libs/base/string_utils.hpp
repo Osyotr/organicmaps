@@ -390,34 +390,33 @@ UniChar LastUniChar(std::string const & s);
 //@{
 namespace internal
 {
-template <typename T, typename = std::enable_if_t<std::is_signed<T>::value && sizeof(T) < sizeof(long long)>>
+template <typename T, std::enable_if_t<std::is_signed_v<T> && (sizeof(T) < sizeof(long)), int> = 0>
 long IntConverter(char const * start, char ** stop, int base)
 {
   return std::strtol(start, stop, base);
 }
 
-template <typename T, typename = std::enable_if_t<std::is_unsigned<T>::value && sizeof(T) < sizeof(unsigned long long)>>
+template <typename T, std::enable_if_t<std::is_unsigned_v<T> && (sizeof(T) < sizeof(unsigned long)), int> = 0>
 unsigned long IntConverter(char const * start, char ** stop, int base)
 {
   return std::strtoul(start, stop, base);
 }
 
-template <typename T, typename = std::enable_if_t<std::is_signed<T>::value && sizeof(T) == sizeof(long long)>>
+template <typename T, typename = std::enable_if_t<std::is_signed<T>::value && sizeof(T) >= sizeof(long)>>
 long long IntConverter(char const * start, char ** stop, int base)
 {
 #ifdef OMIM_OS_WINDOWS_NATIVE
-  return _strtoi64(start, &stop, base);
+  return _strtoi64(start, stop, base);
 #else
   return std::strtoll(start, stop, base);
 #endif
 }
 
-template <typename T,
-          typename = std::enable_if_t<std::is_unsigned<T>::value && sizeof(T) == sizeof(unsigned long long)>>
+template <typename T, typename = std::enable_if_t<std::is_unsigned<T>::value && sizeof(T) >= sizeof(unsigned long)>>
 unsigned long long IntConverter(char const * start, char ** stop, int base)
 {
 #ifdef OMIM_OS_WINDOWS_NATIVE
-  return _strtoui64(start, &stop, base);
+  return _strtoui64(start, stop, base);
 #else
   return std::strtoull(start, stop, base);
 #endif

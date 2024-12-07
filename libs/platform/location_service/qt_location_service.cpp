@@ -67,6 +67,12 @@ QtLocationService::QtLocationService(location::LocationObserver & observer, std:
   if (!m_positionSource)
   {
     LOG(LWARNING, ("Failed to acquire QGeoPositionInfoSource from ", sourceName));
+    m_positionSource = QGeoPositionInfoSource::createDefaultSource(params, this);
+  }
+
+  if (!m_positionSource)
+  {
+    LOG(LWARNING, ("Failed to acquire default QGeoPositionInfoSource"));
     return;
   }
 

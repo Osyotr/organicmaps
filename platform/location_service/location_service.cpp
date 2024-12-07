@@ -77,6 +77,9 @@ public:
 #if defined(OMIM_OS_LINUX)
       m_services.push_back(CreateQtLocationService(*this, "geoclue2"));
 #endif // OMIM_OS_LINUX
+#if defined(OMIM_OS_WINDOWS)
+      m_services.push_back(CreateQtLocationService(*this, "winrt"));
+#endif // OMIM_OS_WINDOWS
 #elif defined(APPLE_LOCATION_SERVICE) // No QT_LOCATION_SERVICE
       m_services.push_back(CreateAppleLocationService(*this));
 #endif // QT_LOCATION_SERVICE

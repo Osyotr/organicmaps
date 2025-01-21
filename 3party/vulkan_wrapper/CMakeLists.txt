@@ -22,4 +22,9 @@ if (PLATFORM_LINUX)
 endif()
 
 # dlopen
-target_link_libraries(${PROJECT_NAME} $<$<BOOL:CMAKE_DL_LIBS>:${CMAKE_DL_LIBS}>)
+if(WIN32)
+  find_package(dlfcn-win32 CONFIG REQUIRED)
+  target_link_libraries(${PROJECT_NAME} dlfcn-win32::dl)
+else()
+  target_link_libraries(${PROJECT_NAME} $<$<BOOL:CMAKE_DL_LIBS>:${CMAKE_DL_LIBS}>)
+endif()

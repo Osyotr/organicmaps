@@ -11,13 +11,17 @@ target_link_libraries(${PROJECT_NAME}
 
 # This test requires additional data from the other repository
 if(NOT TEST_DATA_REPO_URL)
-	set(TEST_DATA_REPO_URL "https://github.com/organicmaps/world_feed_integration_tests_data.git")
+  set(TEST_DATA_REPO_URL "https://github.com/organicmaps/world_feed_integration_tests_data.git")
 endif()
-set(DESTINATION_FOLDER "${OMIM_DATA_DIR}/test_data/world_feed_integration_tests_data/")
 
-add_custom_command(
-  TARGET ${PROJECT_NAME}
-  POST_BUILD
-  COMMAND test -d ${DESTINATION_FOLDER} || (git clone ${TEST_DATA_REPO_URL} ${DESTINATION_FOLDER})
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+include(ExternalProject)
+ExternalProject_Add(world_feed_integration_tests_data
+  GIT_REPOSITORY    "${TEST_DATA_REPO_URL}"
+  GIT_TAG           master
+  SOURCE_DIR        "${OMIM_DATA_DIR}/test_data/world_feed_integration_tests_data"
+  CONFIGURE_COMMAND ""
+  BUILD_COMMAND     ""
+  INSTALL_COMMAND   ""
 )
+
+add_dependencies(world_feed_integration_tests world_feed_integration_tests_data)

@@ -1,0 +1,101 @@
+name: Windows check
+on:
+  workflow_dispatch: # Manual trigger
+  push:
+    branches:
+      - master
+  pull_request:
+    paths-ignore:
+      - .gitignore
+      - .github/**
+      - '!.github/workflows/windows-check.yaml'  # Run check on self change
+      - CONTRIBUTORS
+      - LICENSE
+      - NOTICE
+      - README.md
+      - android/**
+      - iphone/**
+      - data/strings/**
+      - docs/**
+      - packaging/**
+      - platform/*apple*
+      - platform/*_android*
+      - platform/*_ios*
+      - platform/*_mac*
+      - platform/*_linux*
+      - pyhelpers/**
+      - tools/**
+      - '!tools/python/test_server/**'
+      - xcode/**
+
+env:
+  VCPKG_BINARY_SOURCES: 'clear;x-gha,readwrite'
+
+jobs:
+  windows-matrix:
+    name: Windows builds
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [{ CMAKE_BUILD_TYPE: Debug, CMAKE_MSVC_RUNTIME_LIBRARY: MultiThreadedDebug }, { CMAKE_BUILD_TYPE: Release, CMAKE_MSVC_RUNTIME_LIBRARY: MultiThreaded }]
+    # Cancels previous jobs if the same branch or PR was updated again.
+    concurrency:
+      group: ${{ github.workflow }}-${{ matrix.build_type.CMAKE_BUILD_TYPE }}-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Parallel submodules checkout
+        shell: bash
+        run: |
+          git \
+            -c submodule."3party/boost".update=none \
+            -c submodule."3party/expat".update=none \
+            -c submodule."3party/fast_double_parser/benchmarks/dependencies/abseil-cpp".update=none \
+            -c submodule."3party/fast_double_parser/benchmarks/dependencies/double-conversion".update=none \
+            -c submodule."3party/freetype/freetype".update=none \
+            -c submodule."3party/freetype/freetype/subprojects/dlg".update=none \
+            -c submodule."3party/gflags".update=none \
+            -c submodule."3party/googletest".update=none \
+            -c submodule."3party/harfbuzz/harfbuzz".update=none \
+            -c submodule."3party/icu/icu".update=none \
+            -c submodule."3party/jansson/jansson".update=none \
+            -c submodule."3party/protobuf".update=none \
+            -c submodule."3party/protobuf/protobuf/third_party/benchmark".update=none \
+            -c submodule."3party/pugixml/pugixml".update=none \
+            -c submodule."3party/utfcpp".update=none \
+            -c submodule."3party/Vulkan-Headers".update=none \
+            submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+
+      - name: Developer Command Prompt for Microsoft Visual C++
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
+            core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
+      - name: CMake
+        shell: bash
+        run: |
+          echo "Building ${{ matrix.build_type.CMAKE_BUILD_TYPE }}"
+          cmake . -B build -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.build_type.CMAKE_BUILD_TYPE }} \
+            -DCMAKE_MSVC_RUNTIME_LIBRARY=${{ matrix.build_type.CMAKE_MSVC_RUNTIME_LIBRARY }} \
+            -DWITH_SYSTEM_PROVIDED_3PARTY=ON \
+            -DUNITY_DISABLE=ON \
+            -DOMIM_USE_VCPKG=ON \
+            -DCMAKE_PROJECT_INCLUDE_BEFORE="${{ github.workspace }}/cmake/vcpkg/x_vcpkg_bootstrap.cmake" \
+            -DX_VCPKG_CLONE_DIR="${{ github.workspace }}/build/vcpkg" \
+            -DCMAKE_TOOLCHAIN_FILE="${{ github.workspace }}/build/vcpkg/scripts/buildsystems/vcpkg.cmake" \
+            -DVCPKG_TARGET_TRIPLET=x64-windows-static \
+            -DVCPKG_HOST_TRIPLET=x64-windows-static \
+            -DVCPKG_INSTALL_OPTIONS="--disable-metrics;--no-print-usage;--x-abi-tools-use-exact-versions;--clean-buildtrees-after-build;--clean-packages-after-build"
+
+      - name: Compile
+        shell: bash
+        working-directory: build
+        run: ninja

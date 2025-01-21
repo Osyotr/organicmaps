@@ -35,6 +35,10 @@ std::string const kCompilerOpenGLES = "macos/glslangValidator";
 std::string const kMaliCompilerOpenGLES3Dir = "linux/mali_compiler_es3";
 std::string const kCompilerMaliOpenGLES3 = kMaliCompilerOpenGLES3Dir + "/malisc";
 std::string const kCompilerOpenGLES = "linux/glslangValidator";
+#elif defined(OMIM_OS_WINDOWS)
+std::string const kMaliCompilerOpenGLES3Dir = "win32/mali_compiler_es3";
+std::string const kCompilerMaliOpenGLES3 = kMaliCompilerOpenGLES3Dir + "/malisc.exe";
+std::string const kCompilerOpenGLES = "win32/glslangValidator.exe";
 #endif
 
 std::string DebugPrint(QString const & s) { return s.toStdString(); }

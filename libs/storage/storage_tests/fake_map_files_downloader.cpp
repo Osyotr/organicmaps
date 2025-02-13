@@ -124,6 +124,8 @@ void FakeMapFilesDownloader::OnFileDownloaded(QueuedCountry const & queuedCountr
   auto const country = queuedCountry;
   m_queue.PopFront();
 
+  m_writer.reset();
+
   m_taskRunner.PostTask([country, status]() { country.OnDownloadFinished(status); });
 
   if (!m_queue.IsEmpty())

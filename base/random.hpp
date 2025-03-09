@@ -11,7 +11,9 @@ template <class T> class UniformRandom
 
   std::random_device m_rd;
   std::mt19937 m_gen;
-  std::uniform_int_distribution<T> m_distr;
+
+  using distribution_int_type = std::conditional_t<sizeof(T) != 1, T, std::conditional_t<std::is_signed_v<T>, short, unsigned short>>;
+  std::uniform_int_distribution<distribution_int_type> m_distr;
 
 public:
   UniformRandom(T min, T max) : m_gen(m_rd()), m_distr(min, max) {}

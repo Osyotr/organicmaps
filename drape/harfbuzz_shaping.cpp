@@ -99,12 +99,12 @@ size_t ScriptSetIntersect(char32_t codepoint, TScriptsArray & inOutScripts, size
 //
 // Consider 3 characters with the script values {Kana}, {Hira, Kana}, {Kana}. Without script extensions only the first
 // script in each set would be taken into account, resulting in 3 segments where 1 would be enough.
-size_t ScriptInterval(std::u16string const & text, int32_t start, size_t length, UScriptCode & outScript)
+int32_t ScriptInterval(std::u16string const & text, int32_t start, int32_t length, UScriptCode & outScript)
 {
-  ASSERT_GREATER(length, 0U, ());
+  ASSERT_GREATER(length, 0, ());
 
   auto const begin = text.begin() + start;
-  auto const end = text.begin() + start + static_cast<int32_t>(length);
+  auto const end = text.begin() + start + length;
   auto iterator = begin;
 
   auto c32 = utf8::unchecked::next16(iterator);
@@ -118,7 +118,7 @@ size_t ScriptInterval(std::u16string const & text, int32_t start, size_t length,
     scriptsSize = ScriptSetIntersect(c32, scripts, scriptsSize);
     if (scriptsSize == 0U)
     {
-      length = iterator - begin - 1;
+      length = static_cast<int32_t>(iterator - begin - 1);
       break;
     }
   }
@@ -167,7 +167,7 @@ void GetSingleTextLineRuns(TextSegments & segments)
     {
       // Find the longest sequence of characters that have at least one common UScriptCode value.
       UScriptCode script = USCRIPT_INVALID_CODE;
-      size_t const scriptRunEnd = ScriptInterval(segments.m_text, scriptRunStart, bidiRunEnd - scriptRunStart, script) + scriptRunStart;
+      int32_t const scriptRunEnd = ScriptInterval(segments.m_text, scriptRunStart, bidiRunEnd - scriptRunStart, script) + scriptRunStart;
       ASSERT_LESS(scriptRunStart, base::asserted_cast<int32_t>(scriptRunEnd), ());
 
       // TODO(AB): May need to break on different unicode blocks, parentheses, and control chars (spaces).
@@ -177,7 +177,7 @@ void GetSingleTextLineRuns(TextSegments & segments)
                                    bidiLevel & 0x01 ? HB_DIRECTION_RTL : HB_DIRECTION_LTR);
 
       // Move to the next script sequence.
-      scriptRunStart = static_cast<int32_t>(scriptRunEnd);
+      scriptRunStart = scriptRunEnd;
     }
     // Move to the next direction sequence.
     bidiRunStart = bidiRunEnd;

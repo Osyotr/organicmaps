@@ -114,7 +114,7 @@ double EatDouble(char const * str, char ** strEnd)
       gotMark = true;
       markPos = p;
     }
-    else if (isdigit(*p))
+    else if (std::isdigit(static_cast<unsigned char>(*p)))
     {
       if (gotMark)
         gotDigitAfterMark = true;

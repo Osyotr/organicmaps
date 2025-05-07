@@ -65,8 +65,7 @@ set(SRC
   utm_mgrs_utils.hpp
 )
 
-if (NOT SKIP_QT_GUI AND PLATFORM_DESKTOP AND PLATFORM_LINUX)
-  message("Building with Qt Positioning")
+if (NOT SKIP_QT_GUI AND PLATFORM_DESKTOP AND (PLATFORM_LINUX OR PLATFORM_WIN))
   find_package(Qt6 REQUIRED COMPONENTS Positioning)
   set(QT_POSITIONING true)
   append(SRC
@@ -74,7 +73,6 @@ if (NOT SKIP_QT_GUI AND PLATFORM_DESKTOP AND PLATFORM_LINUX)
     qt_location_service.cpp
   )
 else()
-  message("Building without Qt Positioning")
   set(QT_POSITIONING false)
 endif()
 
@@ -107,7 +105,7 @@ elseif(${PLATFORM_ANDROID})
   )
 else() # neither iPhone nor Android
   # Find bash first, on Windows it can be either in Git or in WSL
-  find_program(BASH bash REQUIRED)
+  find_program(BASH bash REQUIRED HINTS "$ENV{ProgramFiles}/Git/bin")
   # Generate version header file.
   execute_process(COMMAND "${BASH}" tools/unix/version.sh qt_version
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
@@ -207,7 +205,12 @@ target_link_libraries(${PROJECT_NAME}
     -framework\ CFNetwork
     -framework\ Security  # SecPKCS12Import
     >
+  $<$<BOOL:${PLATFORM_WIN}>:bcrypt> # For boost::uuid
 )
+
+if (PLATFORM_WIN)
+  target_link_libraries(${PROJECT_NAME} shlwapi)
+endif()
 
 omim_add_test_subdirectory(platform_tests_support)
 omim_add_test_subdirectory(platform_tests)

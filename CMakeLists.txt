@@ -68,7 +68,7 @@ endif()
 option(WITH_SYSTEM_PROVIDED_3PARTY "Enable compilation with system provided dependencies" OFF)
 set(OMIM_ROOT ${CMAKE_SOURCE_DIR})
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${OMIM_ROOT}/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 include(OmimHelpers)
 include(OmimTesting)
@@ -336,6 +336,7 @@ if (PLATFORM_LINUX OR PLATFORM_WIN)
   find_package(ICU COMPONENTS uc i18n data REQUIRED)
   find_package(Freetype REQUIRED)
   find_package(harfbuzz REQUIRED)
+  find_package(Protobuf REQUIRED)
 endif()
 
 if (WITH_SYSTEM_PROVIDED_3PARTY)
@@ -349,6 +350,9 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
 endif()
 
 find_package(ZLIB REQUIRED)
+
+find_package(Boost CONFIG REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
 
 # Include 3party dependencies.
 add_subdirectory(3party)

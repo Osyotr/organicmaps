@@ -21,7 +21,7 @@ void DecompressZipArchive(std::string const & src, std::string const & dst)
   for (auto const & p : files)
   {
     auto const output = base::JoinPath(dst, p.first);
-    if (output.ends_with(base::GetNativeSeparator()))
+    if (output.ends_with('/'))
     {
       if (!plaftorm.MkDirRecursively(output))
         MYTHROW(MkDirFailure, (output));

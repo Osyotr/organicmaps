@@ -19,6 +19,7 @@
     "harfbuzz",
     "icu",
     "jansson",
+    "protobuf",
     "pugixml",
     {
       "name": "qtbase",

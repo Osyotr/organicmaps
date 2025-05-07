@@ -8,7 +8,7 @@
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif  // !defined(__INTEL_COMPILER)
 
-#include "indexer/drules_struct.pb.h"
+#include "drules_struct.pb.h"
 
 #if !defined(__INTEL_COMPILER)
 #pragma GCC diagnostic pop

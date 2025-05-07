@@ -177,6 +177,7 @@ if (PLATFORM_LINUX OR PLATFORM_WIN)
   find_package(ICU COMPONENTS uc i18n data REQUIRED)
   find_package(Freetype REQUIRED)
   find_package(harfbuzz REQUIRED)
+  find_package(Protobuf REQUIRED)
 endif()
 
 if (WITH_SYSTEM_PROVIDED_3PARTY)

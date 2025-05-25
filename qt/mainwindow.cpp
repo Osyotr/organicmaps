@@ -93,8 +93,7 @@ T * CreateBlackControl(QString const & name)
 // Defined in osm_auth_dialog.cpp.
 extern char const * kOauthTokenSetting;
 
-MainWindow::MainWindow(Framework & framework, std::unique_ptr<ScreenshotParams> && screenshotParams,
-                       QRect const & screenGeometry
+MainWindow::MainWindow(Framework & framework, std::unique_ptr<ScreenshotParams> && screenshotParams
 #ifdef BUILD_DESIGNER
                        ,
                        QString const & mapcssFilePath
@@ -106,8 +105,6 @@ MainWindow::MainWindow(Framework & framework, std::unique_ptr<ScreenshotParams> 
   , m_mapcssFilePath(mapcssFilePath)
 #endif
 {
-  setGeometry(screenGeometry);
-
   if (m_screenshotMode)
   {
     screenshotParams->m_statusChangedFn = [this](std::string const & state, bool finished)

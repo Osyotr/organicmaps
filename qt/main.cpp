@@ -238,7 +238,7 @@ int main(int argc, char * argv[])
 #endif // BUILD_DESIGNER
 
     Framework framework(frameworkParams);
-    qt::MainWindow w(framework, std::move(screenshotParams), QApplication::primaryScreen()->geometry()
+    qt::MainWindow w(framework, std::move(screenshotParams)
 #ifdef BUILD_DESIGNER
                      , mapcssFilePath
 #endif // BUILD_DESIGNER

@@ -46,6 +46,7 @@
 #include <QtWidgets/QToolBar>
 
 #ifdef OMIM_OS_WINDOWS
+#include <windows.h>
 #define IDM_ABOUT_DIALOG        1001
 #define IDM_PREFERENCES_DIALOG  1002
 #endif
@@ -93,8 +94,7 @@ template <class T> T * CreateBlackControl(QString const & name)
 extern char const * kOauthTokenSetting;
 
 MainWindow::MainWindow(Framework & framework,
-                       std::unique_ptr<ScreenshotParams> && screenshotParams,
-                       QRect const & screenGeometry
+                       std::unique_ptr<ScreenshotParams> && screenshotParams
 #ifdef BUILD_DESIGNER
                        , QString const & mapcssFilePath
 #endif
@@ -105,8 +105,6 @@ MainWindow::MainWindow(Framework & framework,
   , m_mapcssFilePath(mapcssFilePath)
 #endif
 {
-  setGeometry(screenGeometry);
-
   if (m_screenshotMode)
   {
     screenshotParams->m_statusChangedFn = [this](std::string const & state, bool finished)

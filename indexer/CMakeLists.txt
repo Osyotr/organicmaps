@@ -49,8 +49,6 @@ set(SRC
   drules_selector.hpp
   drules_selector_parser.cpp
   drules_selector_parser.hpp
-  drules_struct.pb.cc
-  drules_struct.pb.h
   edit_journal.cpp
   edit_journal.hpp
   editable_map_object.cpp
@@ -153,12 +151,16 @@ file(COPY ${OTHER_FILES} DESTINATION ${CMAKE_BINARY_DIR})
 
 omim_add_library(${PROJECT_NAME} ${SRC})
 
+protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS drules_struct.proto)
+target_sources(${PROJECT_NAME} PRIVATE drules_struct.proto ${PROTO_SRCS} ${PROTO_HDRS})
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
+
 target_link_libraries(${PROJECT_NAME}
   search  # search::DummyRankTable in CachingRankTableLoader
   platform
   geometry
-  protobuf
   coding
+  protobuf::libprotobuf
 )
 
 omim_add_test_subdirectory(indexer_tests)

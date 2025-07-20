@@ -344,6 +344,8 @@ void MapWidget::ShowInfoPopup(QMouseEvent * e, m2::PointD const & pt)
 
 void MapWidget::initializeGL()
 {
+  QOpenGLWidget::initializeGL();
+
   ASSERT(m_contextFactory == nullptr, ());
   if (!m_screenshotMode)
     m_ratio = devicePixelRatio();
@@ -399,6 +401,10 @@ void MapWidget::initializeGL()
   emit BeforeEngineCreation();
   CreateEngine();
   m_framework.EnterForeground();
+
+  doneCurrent();
+  m_contextFactory->WaitForInitialization(nullptr);
+  makeCurrent();
 }
 
 void MapWidget::paintGL()

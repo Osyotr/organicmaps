@@ -177,8 +177,10 @@ int main(int argc, char * argv[])
   {
     std::unique_ptr<qt::ScreenshotParams> screenshotParams;
 
+  #ifndef _WIN32
     if (!FLAGS_lang.empty())
       (void)::setenv("LANGUAGE", FLAGS_lang.c_str(), 1);
+  #endif
 
     if (!FLAGS_kml_path.empty() || !FLAGS_points.empty() || !FLAGS_rects.empty())
     {

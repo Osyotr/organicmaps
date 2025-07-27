@@ -265,8 +265,10 @@ int main(int argc, char * argv[])
   if (!settings::Get(settings::kDeveloperMode, outvalue))
     settings::Set(settings::kDeveloperMode, true);
 
+#if !defined(OMIM_OS_WINDOWS)
   if (!FLAGS_lang.empty())
     (void)::setenv("LANGUAGE", FLAGS_lang.c_str(), 1);
+#endif
 
   FrameworkParams frameworkParams;
   Framework framework(frameworkParams);

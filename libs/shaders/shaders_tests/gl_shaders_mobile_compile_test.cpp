@@ -167,6 +167,7 @@ void CompileShaders(CompilerData const & compiler, std::string const & additiona
   TEST_EQUAL(errorLog.isEmpty(), true, ("Defines:", additionalDefines, "\n", errorLog));
 }
 
+#if !defined(OMIM_OS_WINDOWS)
 UNIT_TEST(MobileCompileShaders_Test)
 {
   base::DelayedThreadPool workerThread(6 /* threadsCount */);
@@ -178,6 +179,7 @@ UNIT_TEST(MobileCompileShaders_Test)
 
   workerThread.Shutdown(base::DelayedThreadPool::Exit::ExecPending);
 }
+#endif
 
 struct MaliReleaseVersion
 {
@@ -230,6 +232,7 @@ void MaliCompileShaders(MaliCompilerData const & compiler, MaliDriverSet const &
   // MALI GPUs do not support ENABLE_VTF. Do not test it here.
 }
 
+#if !defined(OMIM_OS_WINDOWS)
 UNIT_TEST(MALI_MobileCompileShaders_Test)
 {
 #if defined(OMIM_OS_MAC)
@@ -472,3 +475,4 @@ UNIT_TEST(MALI_MobileCompileShaders_Test)
 
   workerThread.Shutdown(base::DelayedThreadPool::Exit::ExecPending);
 }
+#endif

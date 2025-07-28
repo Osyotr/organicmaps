@@ -81,7 +81,7 @@ public:
   }
 };
 
-#if defined(OMIM_OS_WINDOWS)  //&& defined(PROFILER_COMMON)
+#if 0 && defined(OMIM_OS_WINDOWS)  //&& defined(PROFILER_COMMON)
 class InitializeFinalize : public FinalizeBase
 {
   FILE * m_errFile;

@@ -33,7 +33,7 @@ static constexpr float kViewportFractionSmoothMove = 0.1;
 
 namespace qt::common
 {
-// #define ENABLE_AA_SWITCH
+#define ENABLE_AA_SWITCH
 
 MapWidget::MapWidget(Framework & framework, bool isScreenshotMode, QWidget * parent)
   : QOpenGLWidget(parent)

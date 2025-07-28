@@ -189,7 +189,19 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
   find_package(utf8cpp REQUIRED)
 endif()
 
+include(FetchContent)
+FetchContent_Declare(
+    zlib
+    GIT_REPOSITORY https://github.com/madler/zlib.git
+    GIT_TAG v1.3.1
+    FIND_PACKAGE_ARGS NAMES ZLIB
+)
+FetchContent_MakeAvailable(zlib)
+
 find_package(ZLIB REQUIRED)
+if (TARGET zlib)
+    add_library(ZLIB::ZLIB ALIAS zlib)
+endif()
 
 # Include 3party dependencies.
 add_subdirectory(3party)

@@ -64,11 +64,17 @@ add_subdirectory(opening_hours)
 add_subdirectory(stb_image)
 add_subdirectory(succinct)
 
+add_library(fast_double_parser INTERFACE)
+add_library(fast_double_parser::fast_double_parser ALIAS fast_double_parser)
+target_include_directories(fast_double_parser INTERFACE "${OMIM_ROOT}/3party/fast_double_parser/include")
+
 add_subdirectory(vulkan_wrapper)
 
 if (PLATFORM_DESKTOP)
   add_subdirectory(libtess2)
+endif()
 
+if (PLATFORM_DESKTOP AND NOT WITH_SYSTEM_PROVIDED_3PARTY)
   set(GLFW_BUILD_DOCS OFF CACHE BOOL "")
   set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "")
   set(GLFW_BUILD_TESTS OFF CACHE BOOL "")

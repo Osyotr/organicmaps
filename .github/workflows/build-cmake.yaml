@@ -59,6 +59,12 @@ jobs:
             cc: clang
             cxx: clang++
             developer-dir: /Applications/Xcode_16.4.app/Contents/Developer
+
+          - os: windows-2025
+            cc: cl.exe
+            cxx: cl.exe
+            unity: OFF
+
         exclude:
           - environment: { unity: OFF }
             cmake-build-type: Release
@@ -118,7 +124,16 @@ jobs:
           brew install ninja qt@6
           pip3 install tornado --break-system-packages
 
+      - name: Install Qt
+        if: ${{ runner.os == 'Windows' }}
+        uses: jurplel/install-qt-action@v4
+
+      - name: Developer Command Prompt for Microsoft Visual C++
+        if: ${{ runner.os == 'Windows' }}
+        uses: ilammy/msvc-dev-cmd@v1
+
       - name: Configure repository
+        shell: bash
         run: ./configure.sh
 
       - name: Configure ccache
@@ -136,13 +151,11 @@ jobs:
         run: |
           cmake . -B ${{ env.BUILD_DIR }} -G Ninja \
             -DCMAKE_BUILD_TYPE=${{ matrix.cmake-build-type }} \
-            -DCMAKE_C_FLAGS=-g1 \
-            -DCMAKE_CXX_FLAGS=-g1 \
             -DCMAKE_UNITY_BUILD=${UNITY_BUILD}
 
       - name: Compile
         working-directory: ${{ env.BUILD_DIR }}
-        run: ninja
+        run: cmake --build .
 
       - name: Prepare testing environment (Linux)
         if: ${{ runner.os == 'Linux' }}

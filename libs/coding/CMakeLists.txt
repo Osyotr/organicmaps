@@ -94,14 +94,16 @@ set(SRC
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  base
-  expat::expat
-  cppjansson
-  succinct
-  ICU::uc
-  ICU::i18n # For transliteration.
-  minizip
-  ZLIB::ZLIB
+  PUBLIC
+    base
+  PRIVATE
+    expat::expat
+    cppjansson
+    succinct
+    ICU::uc
+    ICU::i18n # For transliteration.
+    minizip
+    ZLIB::ZLIB
 )
 
 omim_add_test_subdirectory(coding_tests)

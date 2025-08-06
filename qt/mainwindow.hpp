@@ -80,7 +80,7 @@ class MainWindow
   Q_OBJECT
 
 public:
-  MainWindow(Framework & framework, std::unique_ptr<ScreenshotParams> && screenshotParams, QRect const & screenGeometry
+  MainWindow(Framework & framework, std::unique_ptr<ScreenshotParams> && screenshotParams
 #ifdef BUILD_DESIGNER
              ,
              QString const & mapcssFilePath = QString()

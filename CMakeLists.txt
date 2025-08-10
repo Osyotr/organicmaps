@@ -187,9 +187,8 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
   find_package(jansson CONFIG REQUIRED)
   find_package(pugixml REQUIRED)
   find_package(utf8cpp REQUIRED)
+  find_package(ZLIB REQUIRED)
 endif()
-
-find_package(ZLIB REQUIRED)
 
 # Include 3party dependencies.
 add_subdirectory(3party)

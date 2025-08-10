@@ -18,6 +18,6 @@ set(DESTINATION_FOLDER "${OMIM_DATA_DIR}/test_data/world_feed_integration_tests_
 add_custom_command(
   TARGET ${PROJECT_NAME}
   POST_BUILD
-  COMMAND test -d ${DESTINATION_FOLDER} || (git clone ${TEST_DATA_REPO_URL} ${DESTINATION_FOLDER})
+  COMMAND (git -C "${DESTINATION_FOLDER}" rev-parse) || (git clone ${TEST_DATA_REPO_URL} ${DESTINATION_FOLDER})
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )

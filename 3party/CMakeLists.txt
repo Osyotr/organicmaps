@@ -53,6 +53,17 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
   add_library(utf8cpp INTERFACE)
   add_library(utf8cpp::utf8cpp ALIAS utf8cpp)
   target_include_directories(utf8cpp INTERFACE "${OMIM_ROOT}/3party/utfcpp/source")
+
+  set(ZLIB_BUILD_EXAMPLES OFF)
+  set(SKIP_INSTALL_ALL ON)
+  include(FetchContent)
+  FetchContent_Declare(
+    zlib
+    GIT_REPOSITORY https://github.com/madler/zlib.git
+    GIT_TAG v1.3.1
+  )
+  FetchContent_MakeAvailable(zlib)
+  add_library(ZLIB::ZLIB ALIAS zlibstatic)
 endif()
 
 add_subdirectory(agg)
@@ -64,6 +75,7 @@ add_subdirectory(opening_hours)
 add_subdirectory(stb_image)
 add_subdirectory(succinct)
 
+add_subdirectory(Vulkan-Headers)
 add_subdirectory(vulkan_wrapper)
 
 if (PLATFORM_DESKTOP)

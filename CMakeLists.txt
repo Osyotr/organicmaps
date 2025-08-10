@@ -173,7 +173,7 @@ if (USE_PCH)
 endif()
 
 # Should be on the root level, not in 3party, so tests can get these dependencies.
-if (PLATFORM_LINUX OR PLATFORM_WIN)
+if (PLATFORM_LINUX)
   find_package(ICU COMPONENTS uc i18n data REQUIRED)
   find_package(Freetype REQUIRED)
   find_package(harfbuzz REQUIRED)
@@ -187,9 +187,8 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
   find_package(jansson CONFIG REQUIRED)
   find_package(pugixml REQUIRED)
   find_package(utf8cpp REQUIRED)
+  find_package(ZLIB REQUIRED)
 endif()
-
-find_package(ZLIB REQUIRED)
 
 # Include 3party dependencies.
 add_subdirectory(3party)

@@ -84,7 +84,7 @@ extension ElevationProfilePresenter: ElevationProfilePresenterProtocol {
   func configure() {
     view?.isChartViewHidden = false
 
-    let kMinPointsToDraw = 3
+    let kMinPointsToDraw = 2
     guard let profileData = trackData.elevationProfileData,
           let chartData,
           chartData.points.count >= kMinPointsToDraw else {
@@ -94,13 +94,13 @@ extension ElevationProfilePresenter: ElevationProfilePresenterProtocol {
 
     view?.setChartData(ChartPresentationData(chartData, formatter: formatter))
     view?.reloadDescription()
-    view?.userInteractionEnabled = true
 
     guard !profileData.isTrackRecording else {
       view?.isChartViewInfoHidden = true
       return
     }
 
+    view?.userInteractionEnabled = true
     view?.setActivePointDistance(trackData.activePointDistance)
     view?.setMyPositionDistance(trackData.myPositionDistance)
   }

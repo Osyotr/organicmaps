@@ -64,6 +64,11 @@ jobs:
             cc: clang
             cxx: clang++
             developer-dir: /Applications/Xcode_26.5.app/Contents/Developer
+
+          - os: windows-2025-vs2026
+            cc: cl.exe
+            cxx: cl.exe
+
         exclude:
           - environment: { unity: OFF }
             cmake-build-type: Release
@@ -113,6 +118,13 @@ jobs:
           brew install qt@6
           pip3 install tornado --break-system-packages
 
+      - name: Install Qt
+        if: ${{ runner.os == 'Windows' }}
+        uses: jurplel/install-qt-action@v4
+
+      - uses: ilammy/msvc-dev-cmd@v1
+        if: ${{ runner.os == 'Windows' }}
+
       - name: Configure ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
@@ -125,6 +137,7 @@ jobs:
           save: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Configure cmake
+        shell: bash
         env:
           CC: ${{ matrix.environment.cc }}
           CXX: ${{ matrix.environment.cxx }}
@@ -150,6 +163,7 @@ jobs:
         run: cmake --build --preset ci --target dev_sandbox
 
       - name: Compile
+        shell: bash
         run: cmake --build --preset ci
 
       - name: Prepare testing environment (Linux)

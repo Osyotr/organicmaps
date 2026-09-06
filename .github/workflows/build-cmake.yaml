@@ -192,6 +192,7 @@ jobs:
       #     the offline part of that coverage lives in storage_tests
       - name: Run tests
         if: ${{ matrix.environment.run-tests != 'OFF' }}
+        shell: bash
         run: ctest --preset ${{ matrix.environment.cmake-preset || 'ci' }} -j$(nproc --all)
 
       # Run drape tests separately. They require offscreen rendering support.
@@ -199,4 +200,5 @@ jobs:
       # globally breaks network tests on macOS.
       - name: Run drape tests
         if: ${{ matrix.environment.run-tests != 'OFF' }}
+        shell: bash
         run: ctest --preset ${{ matrix.environment.cmake-preset-drape || 'ci-drape' }} --verbose
